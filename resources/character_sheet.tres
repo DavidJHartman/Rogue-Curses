@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="character_sheet" load_steps=2 format=3 uid="uid://6eqfprwulyms"]
+
+[ext_resource type="Script" path="res://scripts/resources/character_data.gd" id="1_nd3wp"]
+
+[resource]
+script = ExtResource("1_nd3wp")
+character_name = "Grinney"
+color = Color(1, 0, 0, 1)

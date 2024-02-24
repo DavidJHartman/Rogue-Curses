@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwnj40iwy33lc"]
+
+[ext_resource type="Script" path="res://scripts/main menu/username ready up.gd" id="1_0qyye"]
+
+[node name="Username Ready Up" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_0qyye")
+
+[node name="username label" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Username"
+
+[node name="ready label" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[center][wave]Waiting..."

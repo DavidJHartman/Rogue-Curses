@@ -1,0 +1,254 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqelsllm2mi3e"]
+
+[ext_resource type="Script" path="res://scripts/main menu/Screen Controller.gd" id="1_6oitr"]
+[ext_resource type="Script" path="res://scripts/main menu/session setup.gd" id="1_veumj"]
+[ext_resource type="Script" path="res://scripts/main menu/Login.gd" id="2_1nkp2"]
+[ext_resource type="PackedScene" uid="uid://5rv0tnh5hluv" path="res://scenes/main menu/menu_button.tscn" id="3_yor5r"]
+[ext_resource type="Script" path="res://scripts/main menu/Find Match.gd" id="3_yqff4"]
+[ext_resource type="Script" path="res://scripts/main menu/Ready Screen.gd" id="4_od551"]
+
+[node name="Online Menu" type="Node2D"]
+script = ExtResource("1_veumj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Online Menu" type="Control" parent="CanvasLayer" groups=["ui"]]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.0
+offset_top = -116.0
+offset_right = 177.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6oitr")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Online Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Login" type="Control" parent="CanvasLayer/Online Menu"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_1nkp2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Online Menu/Login"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="MarginContainer" parent="CanvasLayer/Online Menu/Login/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Online Menu/Login/VBoxContainer/Header"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][wave]Login"
+fit_content = true
+
+[node name="Personal Info Fields" type="MarginContainer" parent="CanvasLayer/Online Menu/Login/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Online Menu/Login/VBoxContainer/Personal Info Fields"]
+layout_mode = 2
+columns = 2
+
+[node name="Email Label" type="Label" parent="CanvasLayer/Online Menu/Login/VBoxContainer/Personal Info Fields/GridContainer"]
+layout_mode = 2
+text = "Email: "
+
+[node name="Email Field" type="TextEdit" parent="CanvasLayer/Online Menu/Login/VBoxContainer/Personal Info Fields/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+placeholder_text = "placeholderemail@test.com"
+
+[node name="Username Label" type="Label" parent="CanvasLayer/Online Menu/Login/VBoxContainer/Personal Info Fields/GridContainer"]
+layout_mode = 2
+text = "Username: "
+
+[node name="Username Field" type="TextEdit" parent="CanvasLayer/Online Menu/Login/VBoxContainer/Personal Info Fields/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+placeholder_text = "xXx_JohnDoe_xXx"
+
+[node name="Password Label" type="Label" parent="CanvasLayer/Online Menu/Login/VBoxContainer/Personal Info Fields/GridContainer"]
+layout_mode = 2
+text = "Password: "
+
+[node name="Password Field" type="TextEdit" parent="CanvasLayer/Online Menu/Login/VBoxContainer/Personal Info Fields/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Online Menu/Login/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Online Menu/Login/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Online Menu/Login/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Register" parent="CanvasLayer/Online Menu/Login/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer" instance=ExtResource("3_yor5r")]
+layout_mode = 2
+text = "Register"
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Online Menu/Login/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Login" type="Button" parent="CanvasLayer/Online Menu/Login/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Login"
+
+[node name="Find Match" type="Control" parent="CanvasLayer/Online Menu"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_yqff4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Online Menu/Find Match"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="MarginContainer" parent="CanvasLayer/Online Menu/Find Match/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="find_match_header" type="RichTextLabel" parent="CanvasLayer/Online Menu/Find Match/VBoxContainer/Header"]
+visible = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][wave]Finding Match..."
+fit_content = true
+
+[node name="Personal Info Fields" type="MarginContainer" parent="CanvasLayer/Online Menu/Find Match/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Online Menu/Find Match/VBoxContainer/Personal Info Fields"]
+layout_mode = 2
+columns = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Online Menu/Find Match/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Online Menu/Find Match/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="find match button" type="Button" parent="CanvasLayer/Online Menu/Find Match/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Find Match"
+
+[node name="Ready Screen" type="Control" parent="CanvasLayer/Online Menu"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_od551")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Online Menu/Ready Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="MarginContainer" parent="CanvasLayer/Online Menu/Ready Screen/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Header Label" type="RichTextLabel" parent="CanvasLayer/Online Menu/Ready Screen/VBoxContainer/Header"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][wave]Ready Up!"
+fit_content = true
+
+[node name="User Ready Container" type="MarginContainer" parent="CanvasLayer/Online Menu/Ready Screen/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="User List" type="VBoxContainer" parent="CanvasLayer/Online Menu/Ready Screen/VBoxContainer/User Ready Container"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Online Menu/Ready Screen/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Online Menu/Ready Screen/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ready up" type="Button" parent="CanvasLayer/Online Menu/Ready Screen/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "I'm Ready!"
+
+[connection signal="pressed" from="CanvasLayer/Online Menu/Login/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/Login" to="CanvasLayer/Online Menu/Login" method="_on_login_pressed"]
+[connection signal="pressed" from="CanvasLayer/Online Menu/Find Match/VBoxContainer/MarginContainer/HBoxContainer/find match button" to="CanvasLayer/Online Menu/Find Match" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Online Menu/Ready Screen/VBoxContainer/MarginContainer/HBoxContainer/ready up" to="." method="_on_ready_up_pressed"]
+[connection signal="pressed" from="CanvasLayer/Online Menu/Ready Screen/VBoxContainer/MarginContainer/HBoxContainer/ready up" to="CanvasLayer/Online Menu/Ready Screen" method="_on_ready_up_pressed"]

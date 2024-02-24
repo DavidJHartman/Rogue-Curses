@@ -1,0 +1,29 @@
+res://scenes/UI/cursor.tscn
+res://shaders/cursor.gdshader
+res://scenes/main menu/main.tscn
+res://scenes/main menu/username ready up.tscn
+res://scenes/levels/the fortress.tscn
+res://scenes/main menu/online menu.tscn
+res://scenes/game state/match.tscn
+res://scenes/UI/player_hud.tscn
+res://scenes/game state/turn_timer.tscn
+res://scenes/characters/player.tscn
+res://scenes/spells/fire_ball.tscn
+res://scripts/UI/Cursor.gd
+res://scripts/game state/spells/attack spells/FireBall.gd
+res://scripts/game state/player/player.gd
+res://scripts/resources/character_data.gd
+res://scripts/autoload/game setup.gd
+res://scripts/game state/game manager.gd
+res://scripts/main menu/Ready Screen.gd
+res://scripts/UI/Character Select.gd
+res://scenes/UI/character_select.tscn
+res://scenes/UI/spell_slot.tscn
+res://scenes/UI/color_select.tscn
+res://scripts/UI/Color Selector.gd
+res://scripts/main menu/main.gd
+res://scripts/game state/match.gd
+res://scripts/main menu/session setup.gd
+res://addons/NakamaOnline/OnlineMatch.gd
+res://scripts/main menu/Find Match.gd
+res://scripts/autoload/network operations.gd

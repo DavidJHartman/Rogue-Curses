@@ -1,0 +1,199 @@
+[gd_scene load_steps=14 format=3 uid="uid://biie24yj1dqcu"]
+
+[ext_resource type="Script" path="res://scripts/UI/Character Select.gd" id="1_vhkpf"]
+[ext_resource type="Texture2D" uid="uid://bwu1a70o5n44v" path="res://assets/tileset/Rogue Character Sheet.png" id="2_sywu5"]
+[ext_resource type="Texture2D" uid="uid://woa1voosxpim" path="res://assets/tileset/colored-transparent_packed.png" id="3_wprdu"]
+[ext_resource type="PackedScene" uid="uid://3gl2pqbaidmj" path="res://scenes/UI/color_select.tscn" id="4_aeklh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rriv3"]
+atlas = ExtResource("2_sywu5")
+region = Rect2(0, 14, 14, 14)
+
+[sub_resource type="Animation" id="Animation_3kj0q"]
+resource_name = "G'lorbalorb"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/VBoxContainer/Panel/MarginContainer/Sprite:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 14, 14), Rect2(14, 0, 14, 14)]
+}
+
+[sub_resource type="Animation" id="Animation_8oqg1"]
+resource_name = "Grinney"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/VBoxContainer/Panel/MarginContainer/Sprite:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Rect2(28, 0, 14, 14), Rect2(42, 0, 14, 14)]
+}
+
+[sub_resource type="Animation" id="Animation_wl70m"]
+resource_name = "Weebil"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/VBoxContainer/Panel/MarginContainer/Sprite:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Rect2(0, 14, 14, 14), Rect2(14, 14, 14, 14)]
+}
+
+[sub_resource type="Animation" id="Animation_fne2r"]
+resource_name = "Boo"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/VBoxContainer/Panel/MarginContainer/Sprite:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Rect2(28, 14, 14, 14), Rect2(42, 14, 14, 14)]
+}
+
+[sub_resource type="Animation" id="Animation_y8ebg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/VBoxContainer/Panel/MarginContainer/Sprite:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 14, 14, 14)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jawnb"]
+_data = {
+"Boo": SubResource("Animation_fne2r"),
+"G'lorbalorb": SubResource("Animation_3kj0q"),
+"Grinney": SubResource("Animation_8oqg1"),
+"RESET": SubResource("Animation_y8ebg"),
+"Weebil": SubResource("Animation_wl70m")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdpdb"]
+atlas = ExtResource("3_wprdu")
+region = Rect2(753, 161, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ee85"]
+atlas = ExtResource("3_wprdu")
+region = Rect2(721, 161, 14, 14)
+
+[node name="Character Select" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vhkpf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="PanelContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="Sprite" type="TextureRect" parent="HBoxContainer/VBoxContainer/Panel/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_rriv3")
+expand_mode = 5
+
+[node name="CharacterSelectAnimation" type="AnimationPlayer" parent="HBoxContainer/VBoxContainer/Panel/MarginContainer/Sprite"]
+unique_name_in_owner = true
+root_node = NodePath("../../../../../..")
+libraries = {
+"": SubResource("AnimationLibrary_jawnb")
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="cycle left button" type="TextureButton" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_hdpdb")
+stretch_mode = 0
+
+[node name="Character Name" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(88, 23)
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[center]Grinney"
+
+[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="cycle right button" type="TextureButton" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_6ee85")
+stretch_mode = 0
+
+[node name="Color Select" parent="HBoxContainer" instance=ExtResource("4_aeklh")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/cycle left button" to="." method="_on_cycle_left_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/cycle right button" to="." method="_on_cycle_right_button_pressed"]

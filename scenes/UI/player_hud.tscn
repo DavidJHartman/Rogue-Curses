@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvgrd4pdtqo7q"]
+
+[ext_resource type="Script" path="res://scripts/UI/player_hud.gd" id="1_n1j7a"]
+[ext_resource type="PackedScene" uid="uid://dns5omqv08jme" path="res://scenes/UI/cursor.tscn" id="2_mcwgq"]
+
+[node name="Player HUD" type="Node2D"]
+script = ExtResource("1_n1j7a")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+show_percentage = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[wave]Move!"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Cursor" parent="." instance=ExtResource("2_mcwgq")]

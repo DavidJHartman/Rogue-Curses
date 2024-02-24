@@ -1,0 +1,201 @@
+[gd_scene load_steps=2 format=3 uid="uid://3gl2pqbaidmj"]
+
+[ext_resource type="Script" path="res://scripts/UI/Color Selector.gd" id="1_ri32c"]
+
+[node name="Color Select" type="GridContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Red" type="Button" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+script = ExtResource("1_ri32c")
+color = Color(1, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Red"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="ColorRect" type="ColorRect" parent="Red/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 0, 0, 1)
+
+[node name="Blue" type="Button" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+script = ExtResource("1_ri32c")
+color = Color(0, 0, 1, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Blue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="ColorRect" type="ColorRect" parent="Blue/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 1, 1)
+
+[node name="Green" type="Button" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+script = ExtResource("1_ri32c")
+color = Color(0, 1, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Green"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="ColorRect" type="ColorRect" parent="Green/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 1, 0, 1)
+
+[node name="Yellow" type="Button" parent="."]
+clip_contents = true
+layout_mode = 2
+script = ExtResource("1_ri32c")
+color = Color(1, 1, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Yellow"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="ColorRect" type="ColorRect" parent="Yellow/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 1, 0, 1)
+
+[node name="Purple" type="Button" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+script = ExtResource("1_ri32c")
+color = Color(1, 0, 1, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Purple"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="ColorRect" type="ColorRect" parent="Purple/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 0, 1, 1)
+
+[node name="Cyan" type="Button" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+script = ExtResource("1_ri32c")
+color = Color(0, 1, 1, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Cyan"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="ColorRect" type="ColorRect" parent="Cyan/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 1, 1, 1)
+
+[node name="White" type="Button" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+script = ExtResource("1_ri32c")
+color = Color(1, 1, 1, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="White"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="ColorRect" type="ColorRect" parent="White/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Black" type="Button" parent="."]
+clip_contents = true
+layout_mode = 2
+script = ExtResource("1_ri32c")
+
+[node name="MarginContainer" type="MarginContainer" parent="Black"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="ColorRect" type="ColorRect" parent="Black/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="Red" to="Red" method="_on_pressed"]

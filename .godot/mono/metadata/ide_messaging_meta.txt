@@ -1,0 +1,2 @@
+﻿53777
+C:/Program Files/Godot/Godot_v4.3-dev3_mono_win64.exe

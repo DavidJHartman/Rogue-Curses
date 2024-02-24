@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://dns5omqv08jme"]
+
+[ext_resource type="Script" path="res://scripts/UI/Cursor.gd" id="1_12igx"]
+[ext_resource type="Shader" path="res://shaders/cursor.gdshader" id="2_h53kq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x78l0"]
+shader = ExtResource("2_h53kq")
+shader_parameter/color = Color(1, 1, 1, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_imb8m"]
+size = Vector2(14, 14)
+
+[node name="Cursor" type="Node2D"]
+script = ExtResource("1_12igx")
+
+[node name="cursor sprite" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_x78l0")
+texture = SubResource("PlaceholderTexture2D_imb8m")

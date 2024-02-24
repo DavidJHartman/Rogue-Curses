@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dv5tdwgs4m3fc"]
+
+[ext_resource type="Script" path="res://scripts/game state/spells/attack spells/FireBall.gd" id="1_2pe8o"]
+[ext_resource type="Texture2D" uid="uid://woa1voosxpim" path="res://assets/tileset/colored-transparent_packed.png" id="2_1s1t3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj4at"]
+atlas = ExtResource("2_1s1t3")
+region = Rect2(240, 160, 16, 16)
+
+[node name="FireBall" type="Node2D" groups=["network_sync"]]
+script = ExtResource("1_2pe8o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_fj4at")

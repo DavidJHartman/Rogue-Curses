@@ -1,0 +1,19 @@
+res://scripts/UI
+res://scenes/UI
+res://scripts/autoload
+res://resources
+res://scripts/resources
+res://scenes/spells
+res://shaders
+res://scripts/game state/spells/attack spells
+res://scripts/game state
+res://scenes/game state
+res://scripts
+res://scripts/main menu
+res://scripts/game state/player
+res://scenes/characters
+res://scenes/Levels
+res://assets/tileset
+res://scenes/Main Menu
+res://addons/com.heroiclabs.nakama
+res://addons/NakamaOnline

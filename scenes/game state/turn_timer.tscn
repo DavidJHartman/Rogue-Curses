@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2wslxfc3j1p4"]
+
+[ext_resource type="Script" path="res://addons/godot-rollback-netcode/NetworkTimer.gd" id="1_5ahv2"]
+[ext_resource type="Script" path="res://scripts/game state/turn_timer.gd" id="1_xknvc"]
+
+[node name="Turn Timer" type="Node" groups=["network_sync"]]
+script = ExtResource("1_xknvc")
+
+[node name="Network Timer" type="Node" parent="."]
+script = ExtResource("1_5ahv2")
+wait_ticks = 60
+hash_state = false

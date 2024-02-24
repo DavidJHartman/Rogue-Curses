@@ -1,0 +1,149 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1708638957
+CHANGELOG.md::TextFile::-1::1707940495::0::1::::<><>::
+icon.svg::CompressedTexture2D::8778008942287814788::1707940454::1707940458::1::::<><>::
+LICENSE.json::JSON::-1::1708021250::0::1::::<><>::
+README.md::TextFile::-1::1707940495::0::1::::<><>::
+webrtc.gdextension::GDExtension::-1::1708021250::0::1::::<><>::
+::res://addons/::1708021305
+::res://addons/com.heroiclabs.nakama/::1707948880
+Nakama.gd::GDScript::-1::1707948880::0::1::::<>Node<>::
+::res://addons/com.heroiclabs.nakama/api/::1707940495
+NakamaAPI.gd::GDScript::-1::1707940495::0::1::::NakamaAPI<>RefCounted<>::
+NakamaRTAPI.gd::GDScript::-1::1707940495::0::1::::NakamaRTAPI<>NakamaAsyncResult<>::
+NakamaRTMessage.gd::GDScript::-1::1707940495::0::1::::NakamaRTMessage<>RefCounted<>::
+NakamaSession.gd::GDScript::-1::1707940495::0::1::::NakamaSession<>NakamaAsyncResult<>::
+NakamaStorageObjectId.gd::GDScript::-1::1707940495::0::1::::NakamaStorageObjectId<>RefCounted<>::
+NakamaWriteStorageObject.gd::GDScript::-1::1707940495::0::1::::NakamaWriteStorageObject<>RefCounted<>::
+::res://addons/com.heroiclabs.nakama/client/::1707940495
+NakamaClient.gd::GDScript::-1::1707940495::0::1::::NakamaClient<>RefCounted<>::
+NakamaHTTPAdapter.gd::GDScript::-1::1707940495::0::1::::NakamaHTTPAdapter<>Node<>::
+::res://addons/com.heroiclabs.nakama/dotnet-utils/::1707940495
+GodotHttpAdapter.cs::CSharpScript::-1::1707940495::0::1::::<><>::
+GodotLogger.cs::CSharpScript::-1::1707940495::0::1::::<><>::
+GodotWebSocketAdapter.cs::CSharpScript::-1::1707940495::0::1::::<><>::
+::res://addons/com.heroiclabs.nakama/socket/::1707940495
+NakamaSocket.gd::GDScript::-1::1707940495::0::1::::NakamaSocket<>RefCounted<>::
+NakamaSocketAdapter.gd::GDScript::-1::1707940495::0::1::::NakamaSocketAdapter<>Node<>::
+::res://addons/com.heroiclabs.nakama/utils/::1707940496
+NakamaAsyncResult.gd::GDScript::-1::1707940496::0::1::::NakamaAsyncResult<>RefCounted<>::
+NakamaException.gd::GDScript::-1::1707940496::0::1::::NakamaException<>RefCounted<>::
+NakamaLogger.gd::GDScript::-1::1707940496::0::1::::NakamaLogger<>RefCounted<>::
+NakamaMultiplayerBridge.gd::GDScript::-1::1707940496::0::1::::NakamaMultiplayerBridge<>RefCounted<>::
+NakamaMultiplayerPeer.gd::GDScript::-1::1707940496::0::1::::NakamaMultiplayerPeer<>MultiplayerPeerExtension<>::
+NakamaSerializer.gd::GDScript::-1::1707940496::0::1::::NakamaSerializer<>RefCounted<>::
+::res://addons/godot-rollback-netcode/::1708211382
+DebugStateComparer.gd::GDScript::-1::1708006468::0::1::::<>RefCounted<>::
+DummyNetworkAdaptor.gd::GDScript::-1::1708006468::0::1::::<>Node<>::
+HashSerializer.gd::GDScript::-1::1708006468::0::1::::<>RefCounted<>::
+LICENSE.txt::TextFile::-1::1708006468::0::1::::<><>::
+log2json.gd::GDScript::-1::1708006468::0::1::::<>SceneTree<>::
+Logger.gd::GDScript::-1::1708006468::0::1::::<>RefCounted<>::
+MessageSerializer.gd::GDScript::-1::1708006468::0::1::::<>RefCounted<>::
+NakamaWebRTCNetworkAdaptor.gd::GDScript::-1::1708006468::0::1::::<>Node<>::
+NetworkAdaptor.gd::GDScript::-1::1708006468::0::1::::<>Node<>::
+NetworkAnimationPlayer.gd::GDScript::-1::1708209003::0::1::::NetworkAnimationPlayer<>AnimationPlayer<>::
+NetworkRandomNumberGenerator.gd::GDScript::-1::1708006468::0::1::::NetworkRandomNumberGenerator<>Node<>::
+NetworkTimer.gd::GDScript::-1::1708210766::0::1::::NetworkTimer<>Node<>::
+plugin.cfg::TextFile::-1::1708006469::0::1::::<><>::
+Plugin.gd::GDScript::-1::1708006468::0::1::::<>EditorPlugin<>::
+ProjectSettings.gd::GDScript::-1::1708006468::0::1::::<>Object<>::
+README.md::TextFile::-1::1708006468::0::1::::<><>::
+RPCNetworkAdaptor.gd::GDScript::-1::1708006468::0::1::::<>Node<>::
+SoundManager.gd::GDScript::-1::1708006468::0::1::::<>Node<>::
+SpawnManager.gd::GDScript::-1::1708006468::0::1::::<>Node<>::
+SyncDebugger.gd::GDScript::-1::1708211382::0::1::::<>Node<>::
+SyncManager.gd::GDScript::-1::1708006468::0::1::::<>Node<>::
+SyncReplay.gd::GDScript::-1::1708006468::0::1::::<>Node<>::
+::res://addons/godot-rollback-netcode/debugger/::1708006468
+DebugOverlay.gd::GDScript::-1::1708006468::0::1::::<>HBoxContainer<>::
+DebugOverlay.tscn::PackedScene::-1::1708006468::0::1::::<><>::res://addons/godot-rollback-netcode/debugger/DebugOverlay.gd
+PeerStatus.gd::GDScript::-1::1708006468::0::1::::<>Control<>::
+PeerStatus.tscn::PackedScene::-1::1708006468::0::1::::<><>::res://addons/godot-rollback-netcode/debugger/PeerStatus.gd
+PerfTimer.gd::GDScript::-1::1708006468::0::1::::<>RefCounted<>::
+::res://addons/godot-rollback-netcode/log_inspector/::1708006469
+FrameDataGraph.gd::GDScript::-1::1708006468::0::1::::<>VBoxContainer<>::
+FrameDataGraph.tscn::PackedScene::1485998885277300763::1708006468::0::1::::<><>::res://addons/godot-rollback-netcode/log_inspector/FrameDataGraph.gd<>res://addons/godot-rollback-netcode/log_inspector/FrameDataGraphCanvas.tscn
+FrameDataGraphCanvas.gd::GDScript::-1::1708006468::0::1::::<>Control<>::
+FrameDataGraphCanvas.tscn::PackedScene::-1::1708006468::0::1::::<><>::res://addons/godot-rollback-netcode/log_inspector/FrameDataGraphCanvas.gd
+FrameDataGrid.gd::GDScript::-1::1708006468::0::1::::<>Tree<>::
+FrameDataGrid.tscn::PackedScene::-1::1708006468::0::1::::<><>::res://addons/godot-rollback-netcode/log_inspector/FrameDataGrid.gd
+FrameViewer.gd::GDScript::-1::1708006468::0::1::::<>Control<>::
+FrameViewer.tscn::PackedScene::2174245929984172344::1708006468::0::1::::<><>::res://addons/godot-rollback-netcode/log_inspector/FrameViewer.gd<>uid://vf3gjk5tt6ih::::res://addons/godot-rollback-netcode/log_inspector/FrameDataGraph.tscn<>uid://d3aa0ihjfmkb8::::res://addons/godot-rollback-netcode/log_inspector/FrameViewerSettingsDialog.tscn<>res://addons/godot-rollback-netcode/log_inspector/FrameDataGrid.tscn
+FrameViewerSettingsDialog.gd::GDScript::-1::1708006468::0::1::::<>Window<>::
+FrameViewerSettingsDialog.tscn::PackedScene::9124594749208348155::1708006469::0::1::::<><>::res://addons/godot-rollback-netcode/log_inspector/FrameViewerSettingsDialog.gd
+FrameViewerTimeOffsetSetting.gd::GDScript::-1::1708006469::0::1::::<>HBoxContainer<>::
+FrameViewerTimeOffsetSetting.tscn::PackedScene::-1::1708006469::0::1::::<><>::res://addons/godot-rollback-netcode/log_inspector/FrameViewerTimeOffsetSetting.gd
+LogData.gd::GDScript::-1::1708006469::0::1::::<>RefCounted<>::
+LogInspector.gd::GDScript::-1::1708006469::0::1::::<>Window<>::
+LogInspector.tscn::PackedScene::8464180249064870010::1708006469::0::1::::<><>::uid://teh77pd0ah27::::res://addons/godot-rollback-netcode/log_inspector/ProgressDialog.tscn<>res://addons/godot-rollback-netcode/log_inspector/LogInspector.gd<>res://addons/godot-rollback-netcode/log_inspector/StateInputViewer.tscn<>uid://58hro2kq3tlw::::res://addons/godot-rollback-netcode/log_inspector/FrameViewer.tscn<>res://addons/godot-rollback-netcode/log_inspector/ReplayServer.gd
+monogram_extended.ttf::FontFile::5517266577717513362::1708006469::1708006469::1::::<><>::
+ProgressDialog.gd::GDScript::-1::1708006469::0::1::::<>Popup<>::
+ProgressDialog.tscn::PackedScene::1342329408582170882::1708006469::0::1::::<><>::res://addons/godot-rollback-netcode/log_inspector/ProgressDialog.gd
+ReplayServer.gd::GDScript::-1::1708006469::0::1::::<>Node<>::
+StateInputViewer.gd::GDScript::-1::1708006469::0::1::::<>VBoxContainer<>::
+StateInputViewer.tscn::PackedScene::-1::1708006469::0::1::::<><>::res://addons/godot-rollback-netcode/log_inspector/StateInputViewer.gd
+::res://addons/NakamaOnline/::1708108858
+Online.gd::GDScript::-1::1708013475::0::1::::<>Node<>::
+OnlineMatch.gd::GDScript::-1::1708108858::0::1::::<>Node<>::
+::res://assets/::1707966599
+::res://assets/tileset/::1708714799
+colored-transparent_packed.png::CompressedTexture2D::1573103404513763056::1707966662::1707966664::1::::<><>::
+Rogue Character Sheet.png::CompressedTexture2D::3973443160666983595::1708714737::1708714799::1::::<><>::
+::res://codegen/::1707940496
+README.md::TextFile::-1::1707940496::0::1::::<><>::
+::res://lib/::1708638948
+::res://lib/libwebrtc_native.macos.template_debug.universal.framework/::1708021251
+::res://lib/libwebrtc_native.macos.template_debug.universal.framework/Resources/::1708021251
+::res://lib/libwebrtc_native.macos.template_release.universal.framework/::1708021251
+::res://lib/libwebrtc_native.macos.template_release.universal.framework/Resources/::1708021251
+::res://scenes/::1708638945
+::res://scenes/characters/::1708715414
+player.tscn::PackedScene::1002079252655533012::1708715414::0::1::::<><>::res://scripts/game state/player/player.gd<>uid://bwu1a70o5n44v::::res://assets/tileset/Rogue Character Sheet.png
+::res://scenes/game state/::1708715413
+match.tscn::PackedScene::2933259949007323196::1708715413::0::1::::<><>::res://scripts/game state/match.gd
+turn_timer.tscn::PackedScene::4328049538001788683::1708715413::0::1::::<><>::res://addons/godot-rollback-netcode/NetworkTimer.gd<>res://scripts/game state/turn_timer.gd
+::res://scenes/levels/::1708715413
+the fortress.tscn::PackedScene::41008036830731806::1708715413::0::1::::<><>::res://scripts/game state/game manager.gd<>uid://woa1voosxpim::::res://assets/tileset/colored-transparent_packed.png<>res://scripts/game state/map grid.gd<>uid://cvgrd4pdtqo7q::::res://scenes/UI/player_hud.tscn
+::res://scenes/main menu/::1708715413
+main.tscn::PackedScene::293852558224967716::1708715413::0::1::::<><>::res://scripts/main menu/main.gd<>uid://5rv0tnh5hluv::::res://scenes/main menu/menu_button.tscn
+menu_button.tscn::PackedScene::2142080451040242593::1708007936::0::1::::<><>::res://scripts/main menu/Menu Button.gd
+online menu.tscn::PackedScene::3518400319460065708::1708715413::0::1::::<><>::res://scripts/main menu/Screen Controller.gd<>res://scripts/main menu/session setup.gd<>res://scripts/main menu/Login.gd<>uid://5rv0tnh5hluv::::res://scenes/main menu/menu_button.tscn<>res://scripts/main menu/Find Match.gd<>res://scripts/main menu/Ready Screen.gd
+username ready up.tscn::PackedScene::8730853089351906440::1708715413::0::1::::<><>::res://scripts/main menu/username ready up.gd
+::res://scenes/spells/::1708715414
+fire_ball.tscn::PackedScene::8696319245983679244::1708715414::0::1::::<><>::res://scripts/game state/spells/attack spells/FireBall.gd<>uid://woa1voosxpim::::res://assets/tileset/colored-transparent_packed.png
+::res://scenes/UI/::1708715414
+cursor.tscn::PackedScene::8110722984830395128::1708715414::0::1::::<><>::res://scripts/UI/Cursor.gd<>res://shaders/cursor.gdshader
+player_hud.tscn::PackedScene::6260232443079548632::1708715413::0::1::::<><>::res://scripts/UI/player_hud.gd<>uid://dns5omqv08jme::::res://scenes/UI/cursor.tscn
+::res://scripts/::1708715693
+custom message serializer.gd::GDScript::-1::1708207377::0::1::::<>RefCounted<>::
+::res://scripts/autoload/::1708715491
+game setup.gd::GDScript::-1::1708715491::0::1::::<>Node<>::
+network operations.gd::GDScript::-1::1708115213::0::1::::<>Node<>::
+::res://scripts/game state/::1708636122
+game manager.gd::GDScript::-1::1708633203::0::1::::<>Node2D<>::
+map grid.gd::GDScript::-1::1708200028::0::1::::<>TileMap<>::
+match.gd::GDScript::-1::1708636122::0::1::::<>Node2D<>::
+turn_timer.gd::GDScript::-1::1708633108::0::1::::<>Node<>::
+::res://scripts/game state/player/::1708715413
+player.gd::GDScript::-1::1708715413::0::1::::<>Area2D<>::
+::res://scripts/game state/spells/::1708634057
+::res://scripts/game state/spells/attack spells/::1708715413
+FireBall.gd::GDScript::-1::1708715413::0::1::::<>Node2D<>::
+::res://scripts/main menu/::1708629321
+Find Match.gd::GDScript::-1::1708106968::0::1::::<>Control<>::
+Login.gd::GDScript::-1::1708019840::0::1::::<>Control<>::
+main.gd::GDScript::-1::1708013475::0::1::::<>Node2D<>::
+Menu Button.gd::GDScript::-1::1708013475::0::1::::<>Button<>::
+Ready Screen.gd::GDScript::-1::1708627511::0::1::::<>Control<>::
+Screen Controller.gd::GDScript::-1::1708013475::0::1::::<>Control<>::
+session setup.gd::GDScript::-1::1708629321::0::1::::<>Node2D<>::
+username ready up.gd::GDScript::-1::1708107282::0::1::::<>HBoxContainer<>::
+::res://scripts/resources/::1708715693
+character_data.gd::GDScript::-1::1708715715::0::1::::<>Node<>::
+::res://scripts/UI/::1708714813
+Cursor.gd::GDScript::-1::1708639522::0::1::::<>Node2D<>::
+player_hud.gd::GDScript::-1::1708632185::0::1::::<>Node2D<>::
+Spell Slot.gd::GDScript::-1::1708714813::0::1::::<>Node2D<>::
+::res://shaders/::1708715414
+cursor.gdshader::Shader::-1::1708715414::0::1::::<><>::

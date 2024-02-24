@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://xajkgwlemce8"]
+
+[ext_resource type="Script" path="res://scripts/UI/Spell Slot.gd" id="1_pxe4u"]
+
+[node name="Spell Slot" type="Node2D"]
+script = ExtResource("1_pxe4u")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
