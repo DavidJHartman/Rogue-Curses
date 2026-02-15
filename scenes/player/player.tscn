@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://cyhxvwgvrv18w"]
+
+[ext_resource type="Texture2D" uid="uid://3ohm557tyfpi" path="res://icon.svg" id="1_8afob"]
+[ext_resource type="Script" uid="uid://dkj7t8te0kh5u" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="PackedScene" uid="uid://cx6wvgxqp4tuc" path="res://scenes/spells/fireball/fireball.tscn" id="2_gmlin"]
+[ext_resource type="PackedScene" uid="uid://jj0v2oopg5bv" path="res://scenes/ui/spell slot/spell slot.tscn" id="4_lvxji"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gmlin"]
+radius = 8.0
+
+[node name="Player" type="Node2D" unique_id=1160689065 node_paths=PackedStringArray("spell_slot_manager") groups=["network_sync"]]
+script = ExtResource("1_dovo2")
+spell_1 = ExtResource("2_gmlin")
+spell_2 = ExtResource("2_gmlin")
+spell_3 = ExtResource("2_gmlin")
+spell_slot_manager = NodePath("MarginContainer/SpellSlots")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1363729480]
+texture_filter = 1
+scale = Vector2(0.126, 0.126)
+texture = ExtResource("1_8afob")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=859917980]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=282234592]
+shape = SubResource("CircleShape2D_gmlin")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=111628222]
+top_level = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="SpellSlots" type="VBoxContainer" parent="MarginContainer" unique_id=912079674]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="spell slot" parent="MarginContainer/SpellSlots" unique_id=413526508 instance=ExtResource("4_lvxji")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="spell slot2" parent="MarginContainer/SpellSlots" unique_id=1011049689 instance=ExtResource("4_lvxji")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="spell slot3" parent="MarginContainer/SpellSlots" unique_id=1819323210 instance=ExtResource("4_lvxji")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
