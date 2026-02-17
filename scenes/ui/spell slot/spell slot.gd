@@ -20,6 +20,13 @@ func setup_spell(new_spell_resource : SpellResource) -> void:
 	progress_bar.max_value = spell_resource.ticks_to_charge
 	spell_sprite.position = size/2
 
+func _network_process(_data : Dictionary) -> void:
+	if spell_ready == false:
+		return
+	if current_ticks == spell_resource.ticks_to_charge:
+		spell_ready = true
+		spawn_spell()
+
 func increment_ready() -> void:
 	if spell_resource == null:
 		return
@@ -27,9 +34,7 @@ func increment_ready() -> void:
 		return
 	current_ticks += 1
 	progress_bar.value = current_ticks
-	if current_ticks == spell_resource.ticks_to_charge:
-		spell_ready = true
-		spawn_spell()
+	
 
 func reset_spell_slot() -> void:
 	current_ticks = 0
@@ -43,6 +48,7 @@ func button_pressed(cast_position : Vector2, tile_position : Vector2) -> void:
 	active_spell.receive_input(cast_position, tile_position)
 
 func spawn_spell() -> void:
+	return
 	if spell_resource == null:
 		return
 	
