@@ -2,8 +2,8 @@ extends Spell
 
 @export var fire_effect : PackedScene
 
-var start_position : Vector2i
-var end_position : Vector2i
+var start_position : Vector2i = Vector2.ZERO
+var end_position : Vector2i = Vector2.ZERO
 
 func _network_process(_input: Dictionary) -> void:
 	if not active:
@@ -49,3 +49,13 @@ func spawn_fire() -> void:
 		if e2 < dx:
 			err += dx
 			y0 += sy
+
+func _save_state() -> Dictionary:
+	return {
+		"start_position" : start_position,
+		"end_position" : end_position
+	}
+
+func _load_state(state : Dictionary) -> void:
+	start_position = state["start_position"]
+	end_position = state["end_position"]

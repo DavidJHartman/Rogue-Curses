@@ -22,3 +22,13 @@ func update_animation() -> void:
 	else:
 		sprite.region_rect.position.x -= 16
 		frame_1 = true
+
+func _save_state() -> Dictionary:
+	return{
+		"frame_1" : frame_1,
+		"current_ticks" : current_ticks
+	}
+
+func _load_state(state : Dictionary) -> void:
+	frame_1 = state["frame_1"]
+	current_ticks = state["current_ticks"]

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SyncManager="*uid://dfedbb4yvumnk"
 Lobby="*uid://cv18akob1kwh3"
+SyncDebugger="*uid://f1kplbo54vww"
 
 [display]
 

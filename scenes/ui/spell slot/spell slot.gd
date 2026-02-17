@@ -10,6 +10,18 @@ var spell_ready : bool = false
 
 var active_spell : Node2D = null
 
+func _save_state() -> Dictionary:
+	return{
+		"visible" : visible,
+		"current_ticks" : current_ticks,
+		"spell_ready" : spell_ready
+	}
+
+func _load_state(state : Dictionary) -> void:
+	visible = state["visible"]
+	current_ticks = state["current_ticks"]
+	spell_ready = state["spell_ready"]
+
 func _ready() -> void:
 	visible = false
 

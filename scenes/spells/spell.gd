@@ -15,3 +15,11 @@ func _network_spawn(_data : Dictionary) -> void:
 
 func receive_input(_cast_position : Vector2, _tile_position : Vector2i) -> void:
 	return
+
+func _save_state() -> Dictionary:
+	return{
+		
+	}
+
+func _load_state(state : Dictionary) -> void:
+	pass
