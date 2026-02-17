@@ -10,12 +10,12 @@ func _network_process(_input: Dictionary) -> void:
 	global_position += direction.normalized() * speed
 
 func receive_input(cast_position : Vector2, tile_position : Vector2i) -> void:
+	get_parent().reset_spell_slot()
 	reparent($/root/Game)
 	direction = tile_position - Vector2i(cast_position/16)
 	global_position = Vector2(cast_position) + (direction.normalized() * 24)
 	active = true
 	visible = true
-	spell_cast.emit()
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	SyncManager.despawn.call_deferred(self)
