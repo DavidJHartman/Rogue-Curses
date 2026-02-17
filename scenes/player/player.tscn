@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dkj7t8te0kh5u" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://76j4aqoj5xl7" path="res://assets/tileset/Rogue Character Sheet.png" id="2_gmlin"]
 [ext_resource type="PackedScene" uid="uid://jj0v2oopg5bv" path="res://scenes/ui/spell slot/spell slot.tscn" id="4_lvxji"]
+[ext_resource type="Resource" uid="uid://dqj44bgp57hve" path="res://scenes/spells/spell resources/magic missile.tres" id="4_p47bc"]
+[ext_resource type="Resource" uid="uid://cpkqqiu02ppyn" path="res://scenes/spells/spell resources/fire wall.tres" id="5_p47bc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmlin"]
 radius = 8.0
@@ -50,11 +52,13 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+spell_resource = ExtResource("4_p47bc")
 
 [node name="spell slot2" parent="MarginContainer/SpellSlots" unique_id=1011049689 instance=ExtResource("4_lvxji")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+spell_resource = ExtResource("5_p47bc")
 
 [node name="spell slot3" parent="MarginContainer/SpellSlots" unique_id=1819323210 instance=ExtResource("4_lvxji")]
 layout_mode = 2

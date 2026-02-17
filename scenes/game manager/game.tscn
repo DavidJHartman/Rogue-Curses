@@ -14,7 +14,7 @@ tick_timer = NodePath("NetworkTimer")
 
 [node name="NetworkTimer" type="Node" parent="." unique_id=235738289 groups=["network_sync"]]
 script = ExtResource("4_h567x")
-wait_ticks = 120
+wait_ticks = 60
 metadata/_custom_type_script = "uid://g0d43p8fyevx"
 
 [node name="Control" type="Control" parent="." unique_id=760611334]
@@ -35,7 +35,7 @@ offset_bottom = 55.0
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-max_value = 120.0
+max_value = 60.0
 fill_mode = 3
 show_percentage = false
 script = ExtResource("3_h5nyn")

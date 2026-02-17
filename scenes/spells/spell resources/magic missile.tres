@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpellResource" format=3 uid="uid://dqj44bgp57hve"]
+
+[ext_resource type="Script" uid="uid://dc6rkwqoyhkdd" path="res://scenes/spells/spell_resource.gd" id="1_yqiw2"]
+[ext_resource type="PackedScene" uid="uid://cx6wvgxqp4tuc" path="res://scenes/spells/magic missile/magic missile.tscn" id="2_y4ajn"]
+[ext_resource type="Texture2D" uid="uid://3ohm557tyfpi" path="res://icon.svg" id="3_vptfg"]
+
+[resource]
+script = ExtResource("1_yqiw2")
+spell_name = "Magic Missile"
+spell_description = "Quick, reliable damage dealer"
+spell_scene = ExtResource("2_y4ajn")
+spell_texture = ExtResource("3_vptfg")
+ticks_to_charge = 2
+metadata/_custom_type_script = "uid://dc6rkwqoyhkdd"

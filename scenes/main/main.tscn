@@ -224,7 +224,6 @@ script = ExtResource("3_k2fmo")
 character_sheet_sprite = NodePath("Control/Sprite2D")
 
 [node name="Timer" type="Timer" parent="CanvasLayer/VBoxContainer/Character Select" unique_id=1219497188]
-wait_time = 2.0
 autostart = true
 
 [node name="Control" type="Control" parent="CanvasLayer/VBoxContainer/Character Select" unique_id=737726434]

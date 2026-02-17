@@ -1,9 +1,10 @@
+NetworkTimer
+Sprite2D
 HBoxContainer
 VBoxContainer
 Button
 Control
 Timer
-Sprite2D
 AnimatedSprite2D
 PanelContainer
 Panel
@@ -12,4 +13,3 @@ ProgressBar
 CollisionShape2D
 Area2D
 CharacterBody2D
-Camera2D

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cyq6b0spwkp4p"]
+
+[ext_resource type="Script" uid="uid://dhf84k6wsu43k" path="res://scenes/spells/fire wall/fire wall.gd" id="1_6u87l"]
+[ext_resource type="PackedScene" uid="uid://dw10aqc8ugd3i" path="res://scenes/effects/fire/fire.tscn" id="2_65n34"]
+
+[node name="Fire Wall" type="Node2D" unique_id=630101275]
+script = ExtResource("1_6u87l")
+fire_effect = ExtResource("2_65n34")

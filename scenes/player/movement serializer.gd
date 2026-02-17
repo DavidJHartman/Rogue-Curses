@@ -17,6 +17,7 @@ const input_path_mapping_reversed := {
 enum HeaderFlags{
 	HAS_INPUT_VECTOR = 0x01,
 	CAST_SPELL = 0x02,
+	SELECT_SPELL = 0x04,
 }
 
 func serialize_input(all_input: Dictionary) -> PackedByteArray:
@@ -48,6 +49,8 @@ func serialize_input(all_input: Dictionary) -> PackedByteArray:
 			header |= HeaderFlags.HAS_INPUT_VECTOR
 		if input.has('cast_spell'):
 			header |= HeaderFlags.CAST_SPELL
+		if input.has('select_spell'):
+			header |= HeaderFlags.SELECT_SPELL
 		
 		#Store the header for this message
 		buffer.put_u8(header)
@@ -58,10 +61,11 @@ func serialize_input(all_input: Dictionary) -> PackedByteArray:
 			buffer.put_float(input_vector.x)
 			buffer.put_float(input_vector.y)
 		if input.has('cast_spell'):
-			var spell_direction : Vector2i = input['spell_direction']
-			buffer.put_8(spell_direction.x)
-			buffer.put_8(spell_direction.y)
-	
+			var click_position : Vector2i = input['click_position']
+			buffer.put_8(click_position.x)
+			buffer.put_8(click_position.y)
+		if input.has('select_spell'):
+			buffer.put_8(input['spell_index'])
 	#Output of buffer
 	buffer.resize(buffer.get_position())
 	return buffer.data_array
@@ -92,7 +96,10 @@ func unserialize_input(serialized: PackedByteArray) -> Dictionary:
 		input["input_vector"] = Vector2(buffer.get_float(), buffer.get_float())
 	if header & HeaderFlags.CAST_SPELL:
 		input["cast_spell"] = true
-		input["spell_direction"] = Vector2i(buffer.get_8(), buffer.get_8())
+		input["click_position"] = Vector2(buffer.get_8(), buffer.get_8())
+	if header & HeaderFlags.SELECT_SPELL:
+		input["select_spell"] = true
+		input["spell_index"] = buffer.get_8()
 	
 	all_input[path] = input
 	

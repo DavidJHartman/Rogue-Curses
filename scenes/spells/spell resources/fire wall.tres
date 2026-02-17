@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpellResource" format=3 uid="uid://cpkqqiu02ppyn"]
+
+[ext_resource type="Script" uid="uid://dc6rkwqoyhkdd" path="res://scenes/spells/spell_resource.gd" id="1_oexee"]
+[ext_resource type="PackedScene" uid="uid://cyq6b0spwkp4p" path="res://scenes/spells/fire wall/fire wall.tscn" id="2_oexee"]
+[ext_resource type="Texture2D" uid="uid://3ohm557tyfpi" path="res://icon.svg" id="3_05yel"]
+
+[resource]
+script = ExtResource("1_oexee")
+spell_name = "Fire Wall"
+spell_description = "Spawn a wall of fire that damages all who try to pass through."
+spell_scene = ExtResource("2_oexee")
+spell_texture = ExtResource("3_05yel")
+ticks_to_charge = 5
+metadata/_custom_type_script = "uid://dc6rkwqoyhkdd"

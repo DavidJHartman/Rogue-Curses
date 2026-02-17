@@ -133,7 +133,7 @@ func _update_player_info(key : String, data) -> void:
 
 func _load_all_character_sheets() -> void:
 	var dir : DirAccess = DirAccess.open(character_sheets_folder)
-	
+	character_sheets.resize(4)
 	if dir:
 		dir.list_dir_begin()
 		var file_name: String = dir.get_next()
@@ -142,7 +142,8 @@ func _load_all_character_sheets() -> void:
 			# Check if the current item is a file (not a directory)
 			if not dir.current_is_dir():
 				# Add the full path to the list
-				character_sheets.append(ResourceLoader.load(character_sheets_folder.path_join(file_name)))
+				var new_character_sheet : CharacterSheet = ResourceLoader.load(character_sheets_folder.path_join(file_name))
+				character_sheets[new_character_sheet.character_index] = new_character_sheet
 			
 			 # Move to the next item
 			file_name = dir.get_next()

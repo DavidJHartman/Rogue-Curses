@@ -11,10 +11,12 @@ var tick_timer : NetworkTimer
 var other_players : Array = []
 var can_move : bool = false
 var frame_1 : bool = true
+var can_click : bool = true
 
 func update_character_sheet() -> void:
 	tick_timer.timeout.connect(update_can_move)
 	tick_timer.timeout.connect(update_animation)
+	sprite.position = Vector2.ZERO
 	
 	sprite.texture = character_sheet.sprite_sheet
 	sprite.region_rect = character_sheet.sprite_float_rect[character_sheet.character_index]
@@ -28,23 +30,29 @@ func update_character_sheet() -> void:
 
 func _get_local_input() -> Dictionary:
 	var input_vector : Vector2i = Vector2.ZERO
-	if Input.is_action_just_pressed("ui_up"):
+	var select_spell : bool = false
+	var new_spell_slot : int
+	if Input.is_action_just_pressed("move_up"):
 		input_vector.y = -1
-	elif Input.is_action_just_pressed("ui_down"):
+	elif Input.is_action_just_pressed("move_down"):
 		input_vector.y = 1
-	elif Input.is_action_just_pressed("ui_right"):
+	elif Input.is_action_just_pressed("move_right"):
 		input_vector.x = 1
-	elif Input.is_action_just_pressed("ui_left"):
+	elif Input.is_action_just_pressed("move_left"):
 		input_vector.x = -1
 	
 	if Input.is_action_just_pressed("spell_1"):
-		selected_spell_slot = 1
+		new_spell_slot = 0
+		select_spell = true
 	if Input.is_action_just_pressed("spell_2"):
-		selected_spell_slot = 2
+		new_spell_slot = 1
+		select_spell = true
 	if Input.is_action_just_pressed("spell_3"):
-		selected_spell_slot = 3
+		new_spell_slot = 2
+		select_spell = true
 	if Input.is_action_just_pressed("spell_4"):
-		selected_spell_slot = 4
+		new_spell_slot = 3
+		select_spell = true
 	
 	
 	if input_vector != Vector2i.ZERO && tilemap.query_location(input_vector * tilemap.tile_size + Vector2i(global_position)):
@@ -52,24 +60,27 @@ func _get_local_input() -> Dictionary:
 	
 	var clicked_cell : Vector2i = Vector2i.ZERO
 	var cast_spell : bool = false
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if Input.is_action_just_pressed("lmb_click"):
+		cast_spell = true
 		clicked_cell = tilemap.tilemap.local_to_map(tilemap.tilemap.get_local_mouse_position())
-		spell_slots[selected_spell_slot].button_pressed()
-	
 	
 	var input := {}
 	if input_vector != Vector2i.ZERO:
 		input["input_vector"] = input_vector
 	if cast_spell:
 		input["cast_spell"] = cast_spell
-		input["spell_direction"] = clicked_cell - Vector2i(global_position/16)
+		input["click_position"] = clicked_cell
+	if select_spell:
+		input["select_spell"] = true
+		input["spell_index"] = new_spell_slot
 	
 	return input
 
-func _predict_remote_input(previous_input: Dictionary, ticks_since_real_input: int) -> Dictionary:
+func _predict_remote_input(previous_input: Dictionary, _ticks_since_real_input: int) -> Dictionary:
 	var input = previous_input.duplicate()
 	input.erase("input_vector")
 	input.erase("cast_spell")
+	input.erase("spell_index")
 	
 	return input
 
@@ -80,13 +91,11 @@ func _network_process(input: Dictionary) -> void:
 			can_move = false
 			position += Vector2(input.get("input_vector", Vector2.ZERO) * 16)
 	
-	
+	if input.get("select_spell"):
+		selected_spell_slot = input.get("spell_index")
 	if input.get("cast_spell", false):
-		SyncManager.spawn("Spell", get_parent(), spell_slots[selected_spell_slot].spell, {position = global_position, "spell_direction" = input.get("spell_direction", Vector2i.ZERO)})
+		spell_slots[selected_spell_slot].button_pressed(global_position, input.get("click_position"))
 	
-	set_visibility()
-
-func _physics_process(_delta: float) -> void:
 	set_visibility()
 
 func _save_state() -> Dictionary:
@@ -120,12 +129,15 @@ func update_can_move() -> void:
 	can_move = true
 
 func update_spells() -> void:
-	var spells : Array = character_sheet.get_spells()
+	var spell_resources : Array = character_sheet.get_spells()
 	var i : int = 0
+	
 	for spell_slot in spell_slots:
-		spell_slot.spell = spells[i]
+		if i > spell_resources.size() or spell_resources[i] == null:
+			continue
+		spell_slot.setup_spell(spell_resources[i])
 		tick_timer.timeout.connect(spell_slot.increment_ready)
-		i = i + 1
+		i+=1
 
 func update_animation() -> void:
 	if frame_1:

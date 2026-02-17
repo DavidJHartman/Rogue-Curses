@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dw10aqc8ugd3i"]
+
+[ext_resource type="Script" uid="uid://dqx6esk5c6114" path="res://scenes/effects/fire/fire.gd" id="1_s8j20"]
+[ext_resource type="Texture2D" uid="uid://bnn1yw4jemvp3" path="res://assets/tileset/Effects.png" id="2_s8j20"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s8j20"]
+radius = 7.0
+
+[node name="Fire" type="Node2D" unique_id=137045051 node_paths=PackedStringArray("sprite") groups=["network_sync"]]
+script = ExtResource("1_s8j20")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=193095513]
+texture_filter = 1
+texture = ExtResource("2_s8j20")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=318960565]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=535159648]
+shape = SubResource("CircleShape2D_s8j20")

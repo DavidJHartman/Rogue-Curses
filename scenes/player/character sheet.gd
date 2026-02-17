@@ -2,10 +2,10 @@ class_name CharacterSheet extends Resource
 
 @export var character_name : String
 @export var character_index : int
-@export var spell_1 : PackedScene
-@export var spell_2 : PackedScene
-@export var spell_3 : PackedScene
-@export var spell_4 : PackedScene
+@export var spell_1 : SpellResource
+@export var spell_2 : SpellResource
+@export var spell_3 : SpellResource
+@export var spell_4 : SpellResource
 
 var sprite_sheet : Texture2D = preload("res://assets/tileset/Rogue Character Sheet.png")
 
