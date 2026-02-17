@@ -1,5 +1,8 @@
 extends Node
 
+@export var character_sheets_folder : String = "res://scenes/player/character sheets/"
+var character_sheets : Array
+
 const PORT : int = 9999
 const DEFAULT_SERVER_IP : String = "127.0.0.1"
 const MAX_CONNECTIONS : int = 1
@@ -7,7 +10,7 @@ const MAX_CONNECTIONS : int = 1
 var players = {}
 var players_loaded : int = 0
 
-var player_info = {"name": "Name", "ready": false}
+var player_info = {"name": "Name", "ready": false, "class_index" : 0}
 
 var self_ready : bool = false
 
@@ -25,6 +28,7 @@ func _ready() -> void:
 	#SyncManager.connect("sync_started", _on_SyncManager_sync_started)
 	#SyncManager.connect("sync_stopped", _on_SyncManager_sync_stopped)
 	SyncManager.sync_error.connect(_disconnect_from_session)
+	_load_all_character_sheets()
 
 func join_game(address : String = "") -> Error:
 	if address.is_empty():
@@ -42,7 +46,7 @@ func create_game() -> Error:
 	if error:
 		return error
 	multiplayer.multiplayer_peer = peer
-	
+	players[1] = player_info
 	return OK
 
 func remove_multiplayer_peer() -> void:
@@ -60,7 +64,7 @@ func load_game(game_scene_path) -> void:
 func player_loaded():
 	if multiplayer.is_server():
 		players_loaded += 1
-		if players_loaded == players.size():
+		if players_loaded == players.size() - 1:
 			$/root/Game.start_game.rpc()
 			players_loaded = 0
 
@@ -119,3 +123,29 @@ func _disconnect_from_session() -> void:
 	remove_multiplayer_peer()
 	players.clear()
 	server_disconnected.emit()
+
+func _update_player_info(key : String, data) -> void:
+	player_info[key] = data
+	if multiplayer.is_server():
+		players[1] = player_info
+	else:
+		players[multiplayer.get_unique_id()] = player_info
+
+func _load_all_character_sheets() -> void:
+	var dir : DirAccess = DirAccess.open(character_sheets_folder)
+	
+	if dir:
+		dir.list_dir_begin()
+		var file_name: String = dir.get_next()
+		
+		while file_name != "":
+			# Check if the current item is a file (not a directory)
+			if not dir.current_is_dir():
+				# Add the full path to the list
+				character_sheets.append(ResourceLoader.load(character_sheets_folder.path_join(file_name)))
+			
+			 # Move to the next item
+			file_name = dir.get_next()
+		
+		# Stop iterating (optional, as the loop condition handles it)
+		dir.list_dir_end()

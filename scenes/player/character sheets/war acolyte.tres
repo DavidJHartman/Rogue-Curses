@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharacterSheet" format=3 uid="uid://cpeplykrinkc8"]
+
+[ext_resource type="Script" uid="uid://mktwunkgkyqx" path="res://scenes/player/character sheet.gd" id="1_dbnps"]
+
+[resource]
+script = ExtResource("1_dbnps")
+character_name = "War Acolyte"
+character_index = 2
+metadata/_custom_type_script = "uid://mktwunkgkyqx"

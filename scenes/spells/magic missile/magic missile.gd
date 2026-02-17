@@ -20,3 +20,6 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 
 func _on_area_2d_area_entered(_area: Area2D) -> void:
 	SyncManager.despawn.call_deferred(self)
+
+func get_texture() -> Texture2D:
+	return $Sprite2D.texture

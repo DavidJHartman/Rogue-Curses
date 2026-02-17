@@ -13,6 +13,7 @@ class_name MainMenu extends Node2D
 @export var exit_game_button : Button
 @export var start_game_button : Button
 @export var ready_button : Button
+@export var character_select : PanelContainer
 
 var player_ready : bool = false
 var ready_dict : Dictionary = {false : "Not Ready", true : "Ready"}

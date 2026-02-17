@@ -2,162 +2,27 @@
 
 [ext_resource type="Script" uid="uid://1awvps0nyqq7" path="res://scenes/main/main.gd" id="1_hyk8p"]
 [ext_resource type="Script" uid="uid://hkrkwie5sh61" path="res://scenes/main/sync label.gd" id="2_iuonh"]
+[ext_resource type="Script" uid="uid://tf83ytaivfrs" path="res://scenes/main/character_select.gd" id="3_k2fmo"]
+[ext_resource type="Texture2D" uid="uid://76j4aqoj5xl7" path="res://assets/tileset/Rogue Character Sheet.png" id="4_l3cfh"]
 
-[node name="Main" type="Node2D" unique_id=101911801 node_paths=PackedStringArray("connection_panel", "lobby_panel", "host_field", "port_field", "name_field", "message_label", "player_1_name", "player_2_name", "player_1_ready", "player_2_ready", "exit_game_button", "start_game_button", "ready_button")]
+[node name="Main" type="Node2D" unique_id=101911801 node_paths=PackedStringArray("connection_panel", "lobby_panel", "host_field", "port_field", "name_field", "message_label", "player_1_name", "player_2_name", "player_1_ready", "player_2_ready", "exit_game_button", "start_game_button", "ready_button", "character_select")]
 script = ExtResource("1_hyk8p")
-connection_panel = NodePath("CanvasLayer/ConnectionPanel")
-lobby_panel = NodePath("CanvasLayer/Lobby Panel")
-host_field = NodePath("CanvasLayer/ConnectionPanel/MarginContainer/GridContainer/HostField")
-port_field = NodePath("CanvasLayer/ConnectionPanel/MarginContainer/GridContainer/PortField")
-name_field = NodePath("CanvasLayer/ConnectionPanel/MarginContainer/GridContainer/NameField")
-message_label = NodePath("CanvasLayer/Lobby Panel/MarginContainer/VBoxContainer/Message Label")
-player_1_name = NodePath("CanvasLayer/Lobby Panel/MarginContainer/VBoxContainer/GridContainer/Player 1")
-player_2_name = NodePath("CanvasLayer/Lobby Panel/MarginContainer/VBoxContainer/GridContainer/Player 2")
-player_1_ready = NodePath("CanvasLayer/Lobby Panel/MarginContainer/VBoxContainer/GridContainer/Player 1 Ready")
-player_2_ready = NodePath("CanvasLayer/Lobby Panel/MarginContainer/VBoxContainer/GridContainer/Player 2 Ready")
-exit_game_button = NodePath("CanvasLayer/Lobby Panel/MarginContainer/VBoxContainer/GridContainer/Exit Lobby")
-start_game_button = NodePath("CanvasLayer/Lobby Panel/MarginContainer/VBoxContainer/GridContainer/Start Game")
-ready_button = NodePath("CanvasLayer/Lobby Panel/MarginContainer/VBoxContainer/GridContainer/Ready Toggle")
+connection_panel = NodePath("CanvasLayer/Connect Menu/ConnectionPanel")
+lobby_panel = NodePath("CanvasLayer/Connect Menu/Lobby Panel")
+host_field = NodePath("CanvasLayer/Connect Menu/ConnectionPanel/MarginContainer/GridContainer/HostField")
+port_field = NodePath("CanvasLayer/Connect Menu/ConnectionPanel/MarginContainer/GridContainer/PortField")
+name_field = NodePath("CanvasLayer/Connect Menu/ConnectionPanel/MarginContainer/GridContainer/NameField")
+message_label = NodePath("CanvasLayer/Connect Menu/Lobby Panel/MarginContainer/VBoxContainer/Message Label")
+player_1_name = NodePath("CanvasLayer/Connect Menu/Lobby Panel/MarginContainer/VBoxContainer/GridContainer/Player 1")
+player_2_name = NodePath("CanvasLayer/Connect Menu/Lobby Panel/MarginContainer/VBoxContainer/GridContainer/Player 2")
+player_1_ready = NodePath("CanvasLayer/Connect Menu/Lobby Panel/MarginContainer/VBoxContainer/GridContainer/Player 1 Ready")
+player_2_ready = NodePath("CanvasLayer/Connect Menu/Lobby Panel/MarginContainer/VBoxContainer/GridContainer/Player 2 Ready")
+exit_game_button = NodePath("CanvasLayer/Connect Menu/Lobby Panel/MarginContainer/VBoxContainer/GridContainer/Exit Lobby")
+start_game_button = NodePath("CanvasLayer/Connect Menu/Lobby Panel/MarginContainer/VBoxContainer/GridContainer/Start Game")
+ready_button = NodePath("CanvasLayer/Connect Menu/Lobby Panel/MarginContainer/VBoxContainer/GridContainer/Ready Toggle")
+character_select = NodePath("CanvasLayer/VBoxContainer/Character Select")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1025844675]
-
-[node name="ConnectionPanel" type="PanelContainer" parent="CanvasLayer" unique_id=1179188116]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -54.0
-offset_top = -48.0
-offset_right = 54.0
-offset_bottom = 48.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ConnectionPanel" unique_id=991210042]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/ConnectionPanel/MarginContainer" unique_id=2078642238]
-layout_mode = 2
-columns = 2
-
-[node name="NameLabel" type="Label" parent="CanvasLayer/ConnectionPanel/MarginContainer/GridContainer" unique_id=77398370]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-text = "Name"
-horizontal_alignment = 2
-
-[node name="NameField" type="LineEdit" parent="CanvasLayer/ConnectionPanel/MarginContainer/GridContainer" unique_id=1730383505]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Barnacle"
-alignment = 1
-max_length = 8
-
-[node name="HostLabel" type="Label" parent="CanvasLayer/ConnectionPanel/MarginContainer/GridContainer" unique_id=1228842630]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-text = "Host:"
-horizontal_alignment = 2
-
-[node name="HostField" type="LineEdit" parent="CanvasLayer/ConnectionPanel/MarginContainer/GridContainer" unique_id=1135827005]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "127.0.0.1"
-alignment = 1
-
-[node name="PortLabel" type="Label" parent="CanvasLayer/ConnectionPanel/MarginContainer/GridContainer" unique_id=1993745352]
-layout_mode = 2
-text = "Port:"
-horizontal_alignment = 2
-
-[node name="PortField" type="LineEdit" parent="CanvasLayer/ConnectionPanel/MarginContainer/GridContainer" unique_id=1605072395]
-layout_mode = 2
-text = "9999"
-alignment = 1
-
-[node name="Host Game" type="Button" parent="CanvasLayer/ConnectionPanel/MarginContainer/GridContainer" unique_id=2113081711]
-layout_mode = 2
-text = "Host Game"
-
-[node name="Join Game" type="Button" parent="CanvasLayer/ConnectionPanel/MarginContainer/GridContainer" unique_id=1934845529]
-layout_mode = 2
-text = "Join Game"
-
-[node name="Lobby Panel" type="PanelContainer" parent="CanvasLayer" unique_id=1585995831]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -54.0
-offset_top = -48.0
-offset_right = 54.0
-offset_bottom = 48.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Lobby Panel" unique_id=1217673870]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Lobby Panel/MarginContainer" unique_id=1660290281]
-layout_mode = 2
-
-[node name="Message Label" type="Label" parent="CanvasLayer/Lobby Panel/MarginContainer/VBoxContainer" unique_id=1141135034]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Lobby Panel/MarginContainer/VBoxContainer" unique_id=234444079]
-custom_minimum_size = Vector2(187, 0)
-layout_mode = 2
-columns = 2
-
-[node name="Player 1" type="Label" parent="CanvasLayer/Lobby Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=544810113]
-layout_mode = 2
-
-[node name="Player 1 Ready" type="Label" parent="CanvasLayer/Lobby Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=1739927234]
-layout_mode = 2
-text = "Unready"
-
-[node name="Player 2" type="Label" parent="CanvasLayer/Lobby Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=913639436]
-layout_mode = 2
-
-[node name="Player 2 Ready" type="Label" parent="CanvasLayer/Lobby Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=1973504541]
-layout_mode = 2
-text = "Unready"
-
-[node name="Exit Lobby" type="Button" parent="CanvasLayer/Lobby Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=1056745880]
-custom_minimum_size = Vector2(96, 0)
-layout_mode = 2
-text = "Exit Game"
-
-[node name="Start Game" type="Button" parent="CanvasLayer/Lobby Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=1112083965]
-visible = false
-layout_mode = 2
-text = "Start Game"
-
-[node name="Ready Toggle" type="Button" parent="CanvasLayer/Lobby Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=80738847]
-custom_minimum_size = Vector2(96, 0)
-layout_mode = 2
-text = "Unready"
 
 [node name="Reset" type="Button" parent="CanvasLayer" unique_id=531406533]
 anchors_preset = 2
@@ -197,9 +62,210 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Trying to reconnect..."
 
-[connection signal="text_changed" from="CanvasLayer/ConnectionPanel/MarginContainer/GridContainer/NameField" to="." method="_on_name_field_text_changed"]
-[connection signal="pressed" from="CanvasLayer/ConnectionPanel/MarginContainer/GridContainer/Host Game" to="." method="_on_host_game_pressed"]
-[connection signal="pressed" from="CanvasLayer/ConnectionPanel/MarginContainer/GridContainer/Join Game" to="." method="_on_join_game_pressed"]
-[connection signal="pressed" from="CanvasLayer/Lobby Panel/MarginContainer/VBoxContainer/GridContainer/Start Game" to="." method="_on_start_game_pressed"]
-[connection signal="pressed" from="CanvasLayer/Lobby Panel/MarginContainer/VBoxContainer/GridContainer/Ready Toggle" to="." method="_on_ready_toggle_pressed"]
+[node name="Connect Menu" type="Control" parent="CanvasLayer" unique_id=1792849721]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ConnectionPanel" type="PanelContainer" parent="CanvasLayer/Connect Menu" unique_id=1179188116]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 98.0
+offset_top = 27.0
+offset_right = 342.0
+offset_bottom = 203.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Connect Menu/ConnectionPanel" unique_id=991210042]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Connect Menu/ConnectionPanel/MarginContainer" unique_id=2078642238]
+layout_mode = 2
+columns = 2
+
+[node name="NameLabel" type="Label" parent="CanvasLayer/Connect Menu/ConnectionPanel/MarginContainer/GridContainer" unique_id=77398370]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Name"
+horizontal_alignment = 2
+
+[node name="NameField" type="LineEdit" parent="CanvasLayer/Connect Menu/ConnectionPanel/MarginContainer/GridContainer" unique_id=1730383505]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Barnacle"
+alignment = 1
+max_length = 8
+
+[node name="HostLabel" type="Label" parent="CanvasLayer/Connect Menu/ConnectionPanel/MarginContainer/GridContainer" unique_id=1228842630]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Host:"
+horizontal_alignment = 2
+
+[node name="HostField" type="LineEdit" parent="CanvasLayer/Connect Menu/ConnectionPanel/MarginContainer/GridContainer" unique_id=1135827005]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "127.0.0.1"
+alignment = 1
+
+[node name="PortLabel" type="Label" parent="CanvasLayer/Connect Menu/ConnectionPanel/MarginContainer/GridContainer" unique_id=1993745352]
+layout_mode = 2
+text = "Port:"
+horizontal_alignment = 2
+
+[node name="PortField" type="LineEdit" parent="CanvasLayer/Connect Menu/ConnectionPanel/MarginContainer/GridContainer" unique_id=1605072395]
+layout_mode = 2
+text = "9999"
+alignment = 1
+
+[node name="Host Game" type="Button" parent="CanvasLayer/Connect Menu/ConnectionPanel/MarginContainer/GridContainer" unique_id=2113081711]
+layout_mode = 2
+text = "Host Game"
+
+[node name="Join Game" type="Button" parent="CanvasLayer/Connect Menu/ConnectionPanel/MarginContainer/GridContainer" unique_id=1934845529]
+layout_mode = 2
+text = "Join Game"
+
+[node name="Lobby Panel" type="PanelContainer" parent="CanvasLayer/Connect Menu" unique_id=1585995831]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 102.0
+offset_top = 39.0
+offset_right = 338.0
+offset_bottom = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Connect Menu/Lobby Panel" unique_id=1217673870]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Connect Menu/Lobby Panel/MarginContainer" unique_id=1660290281]
+layout_mode = 2
+
+[node name="Message Label" type="Label" parent="CanvasLayer/Connect Menu/Lobby Panel/MarginContainer/VBoxContainer" unique_id=1141135034]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Connect Menu/Lobby Panel/MarginContainer/VBoxContainer" unique_id=234444079]
+custom_minimum_size = Vector2(187, 0)
+layout_mode = 2
+columns = 2
+
+[node name="Player 1" type="Label" parent="CanvasLayer/Connect Menu/Lobby Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=544810113]
+layout_mode = 2
+
+[node name="Player 1 Ready" type="Label" parent="CanvasLayer/Connect Menu/Lobby Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=1739927234]
+layout_mode = 2
+text = "Unready"
+
+[node name="Player 2" type="Label" parent="CanvasLayer/Connect Menu/Lobby Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=913639436]
+layout_mode = 2
+
+[node name="Player 2 Ready" type="Label" parent="CanvasLayer/Connect Menu/Lobby Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=1973504541]
+layout_mode = 2
+text = "Unready"
+
+[node name="Exit Lobby" type="Button" parent="CanvasLayer/Connect Menu/Lobby Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=1056745880]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+text = "Exit Game"
+
+[node name="Start Game" type="Button" parent="CanvasLayer/Connect Menu/Lobby Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=1112083965]
+visible = false
+layout_mode = 2
+text = "Start Game"
+
+[node name="Ready Toggle" type="Button" parent="CanvasLayer/Connect Menu/Lobby Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=80738847]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+text = "Unready"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=782661346]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="Character Select" type="PanelContainer" parent="CanvasLayer/VBoxContainer" unique_id=352090665 node_paths=PackedStringArray("character_sheet_sprite")]
+custom_minimum_size = Vector2(32, 48)
+layout_mode = 2
+script = ExtResource("3_k2fmo")
+character_sheet_sprite = NodePath("Control/Sprite2D")
+
+[node name="Timer" type="Timer" parent="CanvasLayer/VBoxContainer/Character Select" unique_id=1219497188]
+wait_time = 2.0
+autostart = true
+
+[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer/Character Select" unique_id=737726434]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/VBoxContainer/Character Select/Control" unique_id=1297859840]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("4_l3cfh")
+region_enabled = true
+region_rect = Rect2(0, 0, 14, 14)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=1143499377]
+layout_mode = 2
+
+[node name="Character 1" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=638292542]
+layout_mode = 2
+text = "1"
+
+[node name="Character 2" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=1094620742]
+layout_mode = 2
+text = "2"
+
+[node name="Character 3" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=168274623]
+layout_mode = 2
+text = "3"
+
+[node name="Character 4" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=198179955]
+layout_mode = 2
+text = "4"
+
 [connection signal="pressed" from="CanvasLayer/Reset" to="." method="_on_reset_pressed"]
+[connection signal="text_changed" from="CanvasLayer/Connect Menu/ConnectionPanel/MarginContainer/GridContainer/NameField" to="." method="_on_name_field_text_changed"]
+[connection signal="pressed" from="CanvasLayer/Connect Menu/ConnectionPanel/MarginContainer/GridContainer/Host Game" to="." method="_on_host_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/Connect Menu/ConnectionPanel/MarginContainer/GridContainer/Join Game" to="." method="_on_join_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/Connect Menu/Lobby Panel/MarginContainer/VBoxContainer/GridContainer/Start Game" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/Connect Menu/Lobby Panel/MarginContainer/VBoxContainer/GridContainer/Ready Toggle" to="." method="_on_ready_toggle_pressed"]
+[connection signal="timeout" from="CanvasLayer/VBoxContainer/Character Select/Timer" to="CanvasLayer/VBoxContainer/Character Select" method="update_animation"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/Character 1" to="CanvasLayer/VBoxContainer/Character Select" method="_on_character_button_pressed" binds= [0]]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/Character 2" to="CanvasLayer/VBoxContainer/Character Select" method="_on_character_button_pressed" binds= [1]]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/Character 3" to="CanvasLayer/VBoxContainer/Character Select" method="_on_character_button_pressed" binds= [2]]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/Character 4" to="CanvasLayer/VBoxContainer/Character Select" method="_on_character_button_pressed" binds= [3]]

@@ -4,13 +4,13 @@
 [ext_resource type="Script" uid="uid://d0ig5fyexath6" path="res://scenes/game manager/game.gd" id="1_bciut"]
 [ext_resource type="Script" uid="uid://botx0e765nm5j" path="res://scenes/game manager/progress_bar.gd" id="3_h5nyn"]
 [ext_resource type="Script" uid="uid://g0d43p8fyevx" path="res://addons/godot-rollback-netcode/NetworkTimer.gd" id="4_h567x"]
+[ext_resource type="Script" uid="uid://hkrkwie5sh61" path="res://scenes/main/sync label.gd" id="5_h567x"]
 
-[node name="Game" type="Node2D" unique_id=127609996 node_paths=PackedStringArray("tick_timer", "spell_slots")]
+[node name="Game" type="Node2D" unique_id=127609996 node_paths=PackedStringArray("tick_timer")]
 texture_filter = 1
 script = ExtResource("1_bciut")
 player_scene = ExtResource("1_768nf")
 tick_timer = NodePath("NetworkTimer")
-spell_slots = NodePath("")
 
 [node name="NetworkTimer" type="Node" parent="." unique_id=235738289 groups=["network_sync"]]
 script = ExtResource("4_h567x")
@@ -40,3 +40,30 @@ fill_mode = 3
 show_percentage = false
 script = ExtResource("3_h5nyn")
 timer = NodePath("../../NetworkTimer")
+
+[node name="Control2" type="Control" parent="." unique_id=882515522 node_paths=PackedStringArray("sync_lost_label")]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("5_h567x")
+sync_lost_label = NodePath("Sync Lost")
+
+[node name="Sync Lost" type="Label" parent="Control2" unique_id=1514791763]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -164.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Trying to reconnect..."

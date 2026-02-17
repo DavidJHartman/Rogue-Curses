@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterSheet" format=3 uid="uid://i1pydutp83w8"]
+
+[ext_resource type="Script" uid="uid://mktwunkgkyqx" path="res://scenes/player/character sheet.gd" id="1_t4qje"]
+[ext_resource type="PackedScene" uid="uid://cx6wvgxqp4tuc" path="res://scenes/spells/magic missile/magic missile.tscn" id="2_e2eel"]
+
+[resource]
+script = ExtResource("1_t4qje")
+character_name = "Arcanist"
+spell_1 = ExtResource("2_e2eel")
+metadata/_custom_type_script = "uid://mktwunkgkyqx"

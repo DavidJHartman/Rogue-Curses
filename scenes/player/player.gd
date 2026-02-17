@@ -1,20 +1,23 @@
 class_name Player extends Node2D
 @export var server_player : bool = false
-@export var spell_1 : PackedScene
-@export var spell_2 : PackedScene
-@export var spell_3 : PackedScene
+@export var character_sheet : CharacterSheet
 @export var spell_slot_manager : VBoxContainer
-var spells : Array
+@export var sprite : Sprite2D
 
-var spell_slots : Array
+@onready var spell_slots : Array = $%SpellSlots.get_children()
 var selected_spell_slot : int = 0
 var tilemap : LevelMap
-var move_timer : NetworkTimer
+var tick_timer : NetworkTimer
 var other_players : Array = []
 var can_move : bool = false
+var frame_1 : bool = true
 
-func _ready() -> void:
-	spell_slots = $MarginContainer/SpellSlots.get_children()
+func update_character_sheet() -> void:
+	tick_timer.timeout.connect(update_can_move)
+	tick_timer.timeout.connect(update_animation)
+	
+	sprite.texture = character_sheet.sprite_sheet
+	sprite.region_rect = character_sheet.sprite_float_rect[character_sheet.character_index]
 	update_spells()
 	if multiplayer.is_server():
 		if get_multiplayer_authority() == 1:
@@ -33,6 +36,17 @@ func _get_local_input() -> Dictionary:
 		input_vector.x = 1
 	elif Input.is_action_just_pressed("ui_left"):
 		input_vector.x = -1
+	
+	if Input.is_action_just_pressed("spell_1"):
+		selected_spell_slot = 1
+	if Input.is_action_just_pressed("spell_2"):
+		selected_spell_slot = 2
+	if Input.is_action_just_pressed("spell_3"):
+		selected_spell_slot = 3
+	if Input.is_action_just_pressed("spell_4"):
+		selected_spell_slot = 4
+	
+	
 	if input_vector != Vector2i.ZERO && tilemap.query_location(input_vector * tilemap.tile_size + Vector2i(global_position)):
 		input_vector = Vector2i.ZERO
 	
@@ -40,7 +54,7 @@ func _get_local_input() -> Dictionary:
 	var cast_spell : bool = false
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		clicked_cell = tilemap.tilemap.local_to_map(tilemap.tilemap.get_local_mouse_position())
-		cast_spell = true
+		spell_slots[selected_spell_slot].button_pressed()
 	
 	
 	var input := {}
@@ -106,10 +120,17 @@ func update_can_move() -> void:
 	can_move = true
 
 func update_spells() -> void:
-	spells.append(spell_1)
-	spells.append(spell_2)
-	spells.append(spell_3)
+	var spells : Array = character_sheet.get_spells()
 	var i : int = 0
 	for spell_slot in spell_slots:
 		spell_slot.spell = spells[i]
+		tick_timer.timeout.connect(spell_slot.increment_ready)
 		i = i + 1
+
+func update_animation() -> void:
+	if frame_1:
+		sprite.region_rect.position.x += character_sheet.sprite_size
+		frame_1 = false
+	else:
+		sprite.region_rect.position.x -= character_sheet.sprite_size
+		frame_1 = true

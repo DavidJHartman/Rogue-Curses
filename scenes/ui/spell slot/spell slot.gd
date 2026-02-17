@@ -7,6 +7,10 @@ var spell_name : String
 var current_ticks : int = 0
 var spell_ready : bool = false
 
+var active_spell : Node2D = null
+
+signal cast_spell
+
 func _ready() -> void:
 	if spell == null:
 		return
@@ -25,3 +29,6 @@ func reset_spell_slot() -> void:
 	current_ticks = 0
 	progress_bar.value = current_ticks
 	spell_ready = false
+
+func button_pressed() -> void:
+	pass
