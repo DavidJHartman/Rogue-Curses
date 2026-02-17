@@ -53,6 +53,4 @@ func button_pressed(cast_position : Vector2, tile_position : Vector2) -> void:
 func spawn_spell() -> void:
 	if spell_resource == null:
 		return
-	print("Hey!")
 	SyncManager.spawn("Spell", self, spell_resource.spell_scene)
-	print("Spawn?")

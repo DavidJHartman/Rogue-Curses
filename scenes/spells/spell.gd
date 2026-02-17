@@ -7,6 +7,8 @@ func _network_process(_input: Dictionary) -> void:
 	return
 
 func _network_spawn(_data : Dictionary) -> void:
+	print("Hey")
+	print(get_path())
 	active = false
 	visible = false
 	global_position = Vector2(-1000, -1000)
