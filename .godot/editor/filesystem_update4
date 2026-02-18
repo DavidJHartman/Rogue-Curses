@@ -19,3 +19,4 @@ res://scenes/effects/fire/fire.tscn
 res://scenes/spells/spell resources/fire wall.tres
 res://autoloads/Lobby.gd
 res://assets/maps/test_level.tscn
+res://scenes/main/main.gd

@@ -29,7 +29,7 @@ func _ready() -> void:
 	multiplayer.connection_failed.connect(_on_connected_fail)
 	multiplayer.server_disconnected.connect(_on_server_disconnected)
 	SyncManager.connect("sync_started", _on_SyncManager_sync_started)
-	#SyncManager.connect("sync_stopped", _on_SyncManager_sync_stopped)
+	SyncManager.connect("sync_stopped", _on_SyncManager_sync_stopped)
 	SyncManager.sync_error.connect(_disconnect_from_session)
 	_load_all_character_sheets()
 
@@ -137,7 +137,28 @@ func _update_player_info(key : String, data) -> void:
 func _on_SyncManager_sync_started() -> void:
 	if logging_enabled:
 		pass
-		#var dir = Directory.
+		var dir : DirAccess = DirAccess.open(LOG_FILE_DIRECTORY)
+		if not dir:
+			dir = DirAccess.open("user://")
+			dir.make_dir(LOG_FILE_DIRECTORY)
+		
+		var date = Time.get_date_dict_from_system()
+		var time = Time.get_time_dict_from_system()
+		var log_file_name = "%04d%02d%02d-%02d%02d%02d-peer-%d.log"%[
+			date['year'],
+			date['month'],
+			date['day'],
+			time['hour'],
+			time['minute'],
+			time['second'],
+			multiplayer.get_unique_id(),
+		]
+		
+		SyncManager.start_logging(LOG_FILE_DIRECTORY + '/' + log_file_name)
+
+func _on_SyncManager_sync_stopped() -> void:
+	if logging_enabled:
+		SyncManager.stop_logging()
 
 func _load_all_character_sheets() -> void:
 	var dir : DirAccess = DirAccess.open(character_sheets_folder)

@@ -16,7 +16,7 @@ func receive_input(_cast_position : Vector2, _tile_position : Vector2i) -> void:
 	else:
 		end_position = _tile_position
 		spawn_fire()
-		get_parent().reset_spell_slot()
+		spell_cast.emit()
 		SyncManager.despawn(self)
 
 func spawn_fire() -> void:
