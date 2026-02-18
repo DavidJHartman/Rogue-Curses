@@ -14,7 +14,7 @@ func _save_state() -> Dictionary:
 	return{
 		"visible" : visible,
 		"current_ticks" : current_ticks,
-		"spell_ready" : spell_ready
+		"spell_ready" : spell_ready,
 	}
 
 func _load_state(state : Dictionary) -> void:
@@ -65,4 +65,4 @@ func button_pressed(cast_position : Vector2, tile_position : Vector2) -> void:
 func spawn_spell() -> void:
 	if spell_resource == null:
 		return
-	SyncManager.spawn("Spell", self, spell_resource.spell_scene)
+	active_spell = SyncManager.spawn("Spell", self, spell_resource.spell_scene)

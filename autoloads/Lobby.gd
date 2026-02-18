@@ -6,6 +6,9 @@ var character_sheets : Array
 const PORT : int = 9999
 const DEFAULT_SERVER_IP : String = "127.0.0.1"
 const MAX_CONNECTIONS : int = 1
+const LOG_FILE_DIRECTORY = 'user://detailed_logs'
+
+var logging_enabled : bool = true
 
 var players = {}
 var players_loaded : int = 0
@@ -25,7 +28,7 @@ func _ready() -> void:
 	multiplayer.connected_to_server.connect(_on_connected_ok)
 	multiplayer.connection_failed.connect(_on_connected_fail)
 	multiplayer.server_disconnected.connect(_on_server_disconnected)
-	#SyncManager.connect("sync_started", _on_SyncManager_sync_started)
+	SyncManager.connect("sync_started", _on_SyncManager_sync_started)
 	#SyncManager.connect("sync_stopped", _on_SyncManager_sync_stopped)
 	SyncManager.sync_error.connect(_disconnect_from_session)
 	_load_all_character_sheets()
@@ -130,6 +133,11 @@ func _update_player_info(key : String, data) -> void:
 		players[1] = player_info
 	else:
 		players[multiplayer.get_unique_id()] = player_info
+
+func _on_SyncManager_sync_started() -> void:
+	if logging_enabled:
+		pass
+		#var dir = Directory.
 
 func _load_all_character_sheets() -> void:
 	var dir : DirAccess = DirAccess.open(character_sheets_folder)
