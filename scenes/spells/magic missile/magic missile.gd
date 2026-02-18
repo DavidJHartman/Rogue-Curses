@@ -27,7 +27,7 @@ func _save_state() -> Dictionary:
 	return {
 		active = active,
 		global_position = global_position,
-		direction = direction
+		direction = direction,
 	}
 
 func _load_state(state : Dictionary) -> void:

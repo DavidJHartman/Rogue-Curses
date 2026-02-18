@@ -15,12 +15,17 @@ func _save_state() -> Dictionary:
 		visible = visible,
 		current_ticks = current_ticks,
 		spell_ready = spell_ready,
+		active_spell_path = str(active_spell.get_path()) if active_spell else ""
 	}
 
 func _load_state(state : Dictionary) -> void:
-	visible = state["visible"]
-	current_ticks = state["current_ticks"]
-	spell_ready = state["spell_ready"]
+	visible = state['visible']
+	current_ticks = state['current_ticks']
+	spell_ready = state['spell_ready']
+	if state['active_spell_path'] != "":
+		active_spell = get_node(state['active_spell_path'])
+	else:
+		active_spell = null
 
 func _ready() -> void:
 	visible = false
@@ -61,5 +66,5 @@ func button_pressed(cast_position : Vector2, tile_position : Vector2) -> void:
 func spawn_spell() -> void:
 	if spell_resource == null:
 		return
-	active_spell = SyncManager.spawn(spell_resource.spell_name, self, spell_resource.spell_scene)
+	active_spell = SyncManager.spawn(spell_resource.spell_name, $/root/Game, spell_resource.spell_scene)
 	active_spell.spell_cast.connect(reset_spell_slot)
