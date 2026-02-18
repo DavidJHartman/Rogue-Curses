@@ -62,6 +62,7 @@ func _get_local_input() -> Dictionary:
 	if Input.is_action_just_pressed("lmb_click"):
 		cast_spell = true
 		clicked_cell = tilemap.tilemap.local_to_map(tilemap.tilemap.get_local_mouse_position())
+		print("We clicked once")
 	
 	var input := {}
 	if input_vector != Vector2i.ZERO:
@@ -91,6 +92,8 @@ func _network_process(input: Dictionary) -> void:
 	
 	if input.get("select_spell"):
 		selected_spell_slot = input.get("spell_index")
+	if input.size() != 0:
+		print(input)
 	if input.get("cast_spell", false):
 		spell_slots[selected_spell_slot].button_pressed(global_position, input.get("click_position"))
 	
