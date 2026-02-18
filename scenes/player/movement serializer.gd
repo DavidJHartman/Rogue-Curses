@@ -96,7 +96,7 @@ func unserialize_input(serialized: PackedByteArray) -> Dictionary:
 		input["input_vector"] = Vector2(buffer.get_float(), buffer.get_float())
 	if header & HeaderFlags.CAST_SPELL:
 		input["cast_spell"] = true
-		input["click_position"] = Vector2(buffer.get_8(), buffer.get_8())
+		input["click_position"] = Vector2i(buffer.get_8(), buffer.get_8())
 	if header & HeaderFlags.SELECT_SPELL:
 		input["select_spell"] = true
 		input["spell_index"] = buffer.get_8()

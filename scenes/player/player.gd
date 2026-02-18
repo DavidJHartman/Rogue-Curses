@@ -11,7 +11,6 @@ var tick_timer : NetworkTimer
 var other_players : Array = []
 var can_move : bool = false
 var frame_1 : bool = true
-var can_click : bool = true
 
 func update_character_sheet() -> void:
 	tick_timer.timeout.connect(update_can_move)
@@ -63,6 +62,7 @@ func _get_local_input() -> Dictionary:
 	if Input.is_action_just_pressed("lmb_click"):
 		cast_spell = true
 		clicked_cell = tilemap.tilemap.local_to_map(tilemap.tilemap.get_local_mouse_position())
+		print("We clicked once")
 	
 	var input := {}
 	if input_vector != Vector2i.ZERO:
@@ -73,7 +73,6 @@ func _get_local_input() -> Dictionary:
 	if select_spell:
 		input["select_spell"] = true
 		input["spell_index"] = new_spell_slot
-	
 	return input
 
 func _predict_remote_input(previous_input: Dictionary, _ticks_since_real_input: int) -> Dictionary:
@@ -82,7 +81,7 @@ func _predict_remote_input(previous_input: Dictionary, _ticks_since_real_input: 
 	input.erase("cast_spell")
 	input.erase("spell_index")
 	
-	return input
+	return {}
 
 func _network_process(input: Dictionary) -> void:
 	if can_move:
@@ -93,6 +92,8 @@ func _network_process(input: Dictionary) -> void:
 	
 	if input.get("select_spell"):
 		selected_spell_slot = input.get("spell_index")
+	if input.size() != 0:
+		print(input)
 	if input.get("cast_spell", false):
 		spell_slots[selected_spell_slot].button_pressed(global_position, input.get("click_position"))
 	
@@ -101,10 +102,16 @@ func _network_process(input: Dictionary) -> void:
 func _save_state() -> Dictionary:
 	return {
 		position = position,
+		frame_1 = frame_1,
+		selected_spell_slot = selected_spell_slot,
+		can_move = can_move,
 	}
 
 func _load_state(state : Dictionary) -> void:
 	position = state["position"]
+	frame_1 = state["frame_1"]
+	selected_spell_slot = state["selected_spell_slot"]
+	can_move = state["can_move"]
 
 func set_visibility() -> void:
 	var my_peer_id : int
@@ -141,8 +148,8 @@ func update_spells() -> void:
 
 func update_animation() -> void:
 	if frame_1:
-		sprite.region_rect.position.x += character_sheet.sprite_size
+		sprite.region_rect.position.x = character_sheet.sprite_float_rect[character_sheet.character_index].position.x + character_sheet.sprite_size
 		frame_1 = false
 	else:
-		sprite.region_rect.position.x -= character_sheet.sprite_size
+		sprite.region_rect.position.x = character_sheet.sprite_float_rect[character_sheet.character_index].position.x
 		frame_1 = true

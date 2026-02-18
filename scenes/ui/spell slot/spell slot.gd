@@ -12,9 +12,9 @@ var active_spell : Node2D = null
 
 func _save_state() -> Dictionary:
 	return{
-		"visible" : visible,
-		"current_ticks" : current_ticks,
-		"spell_ready" : spell_ready,
+		visible = visible,
+		current_ticks = current_ticks,
+		spell_ready = spell_ready,
 	}
 
 func _load_state(state : Dictionary) -> void:

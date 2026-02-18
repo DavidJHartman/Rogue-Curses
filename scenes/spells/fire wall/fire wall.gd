@@ -52,8 +52,8 @@ func spawn_fire() -> void:
 
 func _save_state() -> Dictionary:
 	return {
-		"start_position" : start_position,
-		"end_position" : end_position
+		start_position = start_position,
+		end_position = end_position
 	}
 
 func _load_state(state : Dictionary) -> void:
