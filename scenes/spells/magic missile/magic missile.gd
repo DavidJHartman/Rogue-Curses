@@ -19,9 +19,6 @@ func _network_spawn(data : Dictionary) -> void:
 	global_position = data['tile_position'] * 16 + Vector2(8,8)
 	#spell_cast.emit.call_deferred()
 	active = true
-	print(global_position)
-	print(get_parent().name)
-	print(visible)
 
 func _network_process(_input: Dictionary) -> void:
 	if game.current_map.query_location(global_position):
