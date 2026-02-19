@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://jj0v2oopg5bv"]
 
-[ext_resource type="Script" uid="uid://bxd0mcworwl4x" path="res://scenes/ui/spell slot/spell slot.gd" id="1_y8jk7"]
+[ext_resource type="Script" uid="uid://bxd0mcworwl4x" path="res://scenes/ui/spell slot/spell slot.gd" id="1_skm60"]
 [ext_resource type="Texture2D" uid="uid://3ohm557tyfpi" path="res://icon.svg" id="2_skm60"]
 
 [node name="Spell Slot" type="Panel" unique_id=413526508 node_paths=PackedStringArray("progress_bar", "spell_sprite") groups=["network_sync"]]
 custom_minimum_size = Vector2(24, 24)
 offset_right = 24.0
 offset_bottom = 24.0
-script = ExtResource("1_y8jk7")
+script = ExtResource("1_skm60")
 progress_bar = NodePath("MarginContainer/ProgressBar")
 spell_sprite = NodePath("Spell Sprite")
 

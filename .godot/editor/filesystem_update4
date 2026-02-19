@@ -3,3 +3,4 @@ res://scenes/spells/magic missile/magic missile.gd
 res://scenes/ui/spell slot/spell slot.gd
 res://scenes/spells/spell.gd
 res://scenes/spells/fire wall/fire wall.gd
+res://scenes/ui/spell slot/spell slot.tscn
