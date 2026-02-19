@@ -16,7 +16,7 @@ func _network_spawn(data : Dictionary) -> void:
 	parent_nodepath = data["spellslot_path"]
 	#direction = data['tile_position'] - data['cast_position']
 	#global_position = (Vector2(data['cast_position'] * 16) + Vector2(8, 8)) + direction
-	global_position = data['tile_position'] * 16 + Vector2(8,8)
+	global_position = Vector2(data['tile_position'] * 16) + Vector2(8,8)
 	#spell_cast.emit.call_deferred()
 	#active = true
 

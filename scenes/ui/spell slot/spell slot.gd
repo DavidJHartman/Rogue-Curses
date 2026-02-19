@@ -41,7 +41,7 @@ func reset_spell_slot() -> void:
 	current_ticks = 0
 	progress_bar.value = current_ticks
 
-func button_pressed(cast_position : Vector2, tile_position : Vector2) -> void:
+func button_pressed(cast_position : Vector2i, tile_position : Vector2i) -> void:
 	#if current_ticks >= spell_resource.ticks_to_charge:
 	spawn_spell({'cast_position' : cast_position, 'tile_position' : tile_position})
 
