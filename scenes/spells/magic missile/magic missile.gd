@@ -37,7 +37,9 @@ func _on_SyncManager_scene_despawned(_name, spawned_node) -> void:
 func _save_state() -> Dictionary:
 	return {
 		global_position = global_position,
+		direction = direction
 	}
 
 func _load_state(state : Dictionary) -> void:
 	global_position = state['global_position']
+	direction = state['direction']
