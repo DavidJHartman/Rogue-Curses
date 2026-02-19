@@ -16,6 +16,7 @@ var frame_1 : bool = true
 func update_character_sheet() -> void:
 	tick_timer.timeout.connect(update_can_move)
 	tick_timer.timeout.connect(update_animation)
+	tile_position = tilemap.tilemap.local_to_map(global_position)
 	sprite.position = Vector2.ZERO
 	
 	sprite.texture = character_sheet.sprite_sheet
