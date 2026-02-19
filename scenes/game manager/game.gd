@@ -8,6 +8,7 @@ var current_map : LevelMap
 var local_player : Player
 
 @onready var players : Array = [player_scene.instantiate(), player_scene.instantiate()]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_map = load("res://assets/maps/test_level.tscn").instantiate()

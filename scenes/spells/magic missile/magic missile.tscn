@@ -3,21 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://3ohm557tyfpi" path="res://icon.svg" id="1_au3pi"]
 [ext_resource type="Script" uid="uid://bserm4d8rq0at" path="res://scenes/spells/magic missile/magic missile.gd" id="1_u7od8"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_u7od8"]
-radius = 2.0
-
 [node name="Magic Missile" type="Node2D" unique_id=137857017 node_paths=PackedStringArray("collider") groups=["network_sync"]]
 script = ExtResource("1_u7od8")
-collider = NodePath("Area2D")
+collider = NodePath("")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2008502906]
 texture_filter = 1
 scale = Vector2(0.031, 0.031)
 texture = ExtResource("1_au3pi")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=1367391017]
-collision_layer = 4
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1347846199]
-shape = SubResource("CircleShape2D_u7od8")
