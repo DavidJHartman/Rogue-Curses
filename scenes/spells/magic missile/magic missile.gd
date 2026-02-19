@@ -3,6 +3,9 @@ extends Spell
 @export var speed : float = 1.0
 @export var ticks_to_charge : int = 3
 @export var collider : Area2D
+
+@onready var game : Node2D = $"/root/Game"
+
 var direction : Vector2 = Vector2.ZERO
 var despawn : bool = false
 
@@ -17,9 +20,12 @@ func _network_spawn(data : Dictionary) -> void:
 	spell_cast.emit.call_deferred()
 
 func _network_process(_input: Dictionary) -> void:
-	global_position += direction.normalized() * speed
-	if collider.get_overlapping_areas().size() > 0 or collider.get_overlapping_bodies().size() > 0:
+	if game.current_map.query_location(global_position):
 		SyncManager.despawn(self)
+		despawn = true
+		return
+	
+	global_position += direction.normalized() * speed
 
 func _on_SyncManager_scene_spawned(_name, spawned_node, _scene, _data) -> void:
 	if spawned_node == self:
@@ -31,8 +37,12 @@ func _on_SyncManager_scene_despawned(_name, spawned_node) -> void:
 
 func _save_state() -> Dictionary:
 	return {
+		despawn = despawn,
 		global_position = global_position,
 	}
 
 func _load_state(state : Dictionary) -> void:
+	if state['despawn']:
+		SyncManager.despawn(self)
+		return
 	global_position = state['global_position']

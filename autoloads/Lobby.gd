@@ -155,7 +155,7 @@ func _on_SyncManager_sync_started() -> void:
 		
 		SyncManager.start_logging(LOG_FILE_DIRECTORY + '/' + log_file_name)
 		
-		$/root/Game.start_game.rpc()
+		$/root/Game.start_game()
 
 func _on_SyncManager_sync_stopped() -> void:
 	if logging_enabled:

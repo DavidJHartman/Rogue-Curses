@@ -18,7 +18,6 @@ func _ready() -> void:
 	spawn_players()
 	Lobby.player_loaded.rpc()
 
-@rpc("authority", "call_local", "reliable")
 func start_game():
 	tick_timer.start()
 
