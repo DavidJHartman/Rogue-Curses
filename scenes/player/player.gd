@@ -95,7 +95,12 @@ func _network_process(input: Dictionary) -> void:
 	if input.get("select_spell"):
 		selected_spell_slot = input.get("spell_index")
 	if input.get("cast_spell", false):
-		spell_slots[selected_spell_slot].button_pressed(tile_position, input.get("click_position"))
+		var data = {}
+		data['spellslot'] = self
+		data['tile_position'] = tile_position
+		data['click_position'] = input.get("click_position")
+		SyncManager.spawn(spell_slots[selected_spell_slot].spell_resource.spell_name, $/root/Game, spell_slots[selected_spell_slot].spell_scene, data)
+		#spell_slots[selected_spell_slot].button_pressed(tile_position, input.get("click_position"))
 	
 	set_visibility()
 
