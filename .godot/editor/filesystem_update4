@@ -11,3 +11,4 @@ res://scenes/main/sync label.gd
 res://scenes/main/main.gd
 res://assets/maps/test_level.tscn
 res://scenes/effects/fire/fire.tscn
+res://scenes/player/player.gd

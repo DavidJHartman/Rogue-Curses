@@ -6,6 +6,7 @@ class_name Player extends Node2D
 
 @onready var spell_slots : Array = $%SpellSlots.get_children()
 var selected_spell_slot : int = 0
+var tile_position : Vector2i
 var tilemap : LevelMap
 var tick_timer : NetworkTimer
 var other_players : Array = []
@@ -88,17 +89,19 @@ func _network_process(input: Dictionary) -> void:
 		if movement_vector != Vector2.ZERO:
 			can_move = false
 			position += Vector2(input.get("input_vector", Vector2.ZERO) * 16)
+			tile_position = tilemap.tilemap.local_to_map(global_position)
 	
 	if input.get("select_spell"):
 		selected_spell_slot = input.get("spell_index")
 	if input.get("cast_spell", false):
-		spell_slots[selected_spell_slot].button_pressed(global_position, input.get("click_position"))
+		spell_slots[selected_spell_slot].button_pressed(tile_position, input.get("click_position"))
 	
 	set_visibility()
 
 func _save_state() -> Dictionary:
 	return {
 		position = position,
+		tile_position = tile_position,
 		frame_1 = frame_1,
 		selected_spell_slot = selected_spell_slot,
 		can_move = can_move,
@@ -106,6 +109,7 @@ func _save_state() -> Dictionary:
 
 func _load_state(state : Dictionary) -> void:
 	position = state["position"]
+	tile_position = state["tile_position"]
 	frame_1 = state["frame_1"]
 	selected_spell_slot = state["selected_spell_slot"]
 	can_move = state["can_move"]
