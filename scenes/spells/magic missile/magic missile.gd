@@ -16,7 +16,7 @@ func _network_spawn(data : Dictionary) -> void:
 	parent_nodepath = data["spellslot_path"]
 	#direction = data['tile_position'] - data['cast_position']
 	#global_position = (Vector2(data['cast_position'] * 16) + Vector2(8, 8)) + direction
-	global_position = Vector2(data['tile_position'] * 16) + Vector2(8,8)
+	global_position = Vector2(data['click_position'] * 16) + Vector2(8,8)
 	#spell_cast.emit.call_deferred()
 	#active = true
 
@@ -39,14 +39,14 @@ func _on_SyncManager_scene_despawned(_name, spawned_node) -> void:
 
 func _save_state() -> Dictionary:
 	return {
-		#parent_nodepath = parent_nodepath,
+		parent_nodepath = parent_nodepath,
 		global_position = global_position,
-		#direction = direction,
+		direction = direction,
 		active = active
 	}
 
 func _load_state(state : Dictionary) -> void:
-	#parent_nodepath = state['parent_nodepath']
+	parent_nodepath = state['parent_nodepath']
 	global_position = state['global_position']
-	#direction = state['direction']
+	direction = state['direction']
 	active = state['active']
