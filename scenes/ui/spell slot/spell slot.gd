@@ -34,7 +34,6 @@ func setup_spell(new_spell_resource : SpellResource) -> void:
 func increment_ready() -> void:
 	if spell_resource == null:
 		return
-	
 	current_ticks += 1
 	progress_bar.value = current_ticks
 
