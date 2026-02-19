@@ -24,7 +24,6 @@ func spawn_fire() -> void:
 	var y1 : int = end_position.y
 	var x0 : int = start_position.x
 	var y0 : int = start_position.y
-	var points : Array = []
 	
 	var dx: int = abs(x1 - x0)
 	var dy: int = abs(y1 - y0)

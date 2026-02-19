@@ -1,22 +1,5 @@
-res://scenes/player/player.tscn
-res://scenes/player/player.gd
-res://scenes/ui/spell slot/spell slot.gd
-res://scenes/spells/spell.gd
 res://scenes/spells/magic missile/magic missile.tscn
 res://scenes/spells/magic missile/magic missile.gd
-res://scenes/ui/spell slot/spell slot.tscn
-res://scenes/spells/spell_resource.gd
-res://scenes/spells/spell resources/magic missile.tres
-res://scenes/player/character sheets/arcanist.tres
-res://scenes/player/character sheet.gd
-res://scenes/player/movement serializer.gd
-res://scenes/game manager/game.tscn
-res://scenes/main/main.tscn
-res://scenes/effects/fire/fire.gd
-res://scenes/spells/fire wall/fire wall.tscn
+res://scenes/ui/spell slot/spell slot.gd
+res://scenes/spells/spell.gd
 res://scenes/spells/fire wall/fire wall.gd
-res://scenes/effects/fire/fire.tscn
-res://scenes/spells/spell resources/fire wall.tres
-res://autoloads/Lobby.gd
-res://assets/maps/test_level.tscn
-res://scenes/main/main.gd

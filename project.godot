@@ -101,8 +101,6 @@ move_left={
 [network]
 
 rollback/classes/message_serializer="uid://coocal4rjh4de"
-rollback/debug/rollback_ticks=4
-rollback/debug/random_rollback_ticks=10
 rollback/log_inspector/replay_match_scene_path="uid://76i2thd41fap"
 
 [physics]
