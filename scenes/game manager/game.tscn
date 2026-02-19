@@ -6,10 +6,11 @@
 [ext_resource type="Script" uid="uid://g0d43p8fyevx" path="res://addons/godot-rollback-netcode/NetworkTimer.gd" id="4_h567x"]
 [ext_resource type="Script" uid="uid://hkrkwie5sh61" path="res://scenes/main/sync label.gd" id="5_h567x"]
 
-[node name="Game" type="Node2D" unique_id=127609996]
+[node name="Game" type="Node2D" unique_id=127609996 node_paths=PackedStringArray("tick_timer")]
 texture_filter = 1
 script = ExtResource("1_bciut")
 player_scene = ExtResource("1_768nf")
+tick_timer = NodePath("NetworkTimer")
 
 [node name="NetworkTimer" type="Node" parent="." unique_id=235738289 groups=["network_sync"]]
 script = ExtResource("4_h567x")

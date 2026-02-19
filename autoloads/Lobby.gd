@@ -68,7 +68,7 @@ func player_loaded():
 	if multiplayer.is_server():
 		players_loaded += 1
 		if players_loaded == players.size() - 1:
-			$/root/Game.start_game.rpc()
+			SyncManager.start()
 			players_loaded = 0
 
 func disconnect_from_server() -> void:
@@ -109,7 +109,6 @@ func _on_server_disconnected() -> void:
 func start_sync_manager() -> void:
 	if multiplayer.is_server():
 		await get_tree().create_timer(2.0).timeout
-		SyncManager.start()
 		load_game.rpc("res://scenes/game manager/game.tscn")
 
 func check_players_ready() -> bool:
@@ -121,7 +120,6 @@ func check_players_ready() -> bool:
 	return true
 
 func _disconnect_from_session(msg : String) -> void:
-	print(msg)
 	SyncManager.stop()
 	SyncManager.clear_peers()
 	remove_multiplayer_peer()
@@ -156,6 +154,8 @@ func _on_SyncManager_sync_started() -> void:
 		]
 		
 		SyncManager.start_logging(LOG_FILE_DIRECTORY + '/' + log_file_name)
+		
+		$/root/Game.start_game.rpc()
 
 func _on_SyncManager_sync_stopped() -> void:
 	if logging_enabled:

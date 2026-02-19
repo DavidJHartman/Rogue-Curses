@@ -1,4 +1,5 @@
 NetworkTimer
+Node
 Sprite2D
 HBoxContainer
 VBoxContainer
@@ -11,5 +12,3 @@ Panel
 MarginContainer
 ProgressBar
 CollisionShape2D
-Area2D
-CharacterBody2D
