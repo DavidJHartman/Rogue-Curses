@@ -31,7 +31,7 @@ func _on_SyncManager_scene_spawned(_name, spawned_node, _scene, _data) -> void:
 		spell_cast.connect(get_node(parent_nodepath).reset_spell_slot)
 
 func _on_SyncManager_scene_despawned(_name, spawned_node) -> void:
-	if spawned_node == self:
+	if spawned_node == self and not active:
 		spell_cast.disconnect(get_node(parent_nodepath).reset_spell_slot)
 
 func _save_state() -> Dictionary:
