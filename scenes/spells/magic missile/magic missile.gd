@@ -22,7 +22,6 @@ func _network_spawn(data : Dictionary) -> void:
 func _network_process(_input: Dictionary) -> void:
 	if game.current_map.query_location(global_position):
 		SyncManager.despawn(self)
-		despawn = true
 		return
 	
 	global_position += direction.normalized() * speed
@@ -37,12 +36,8 @@ func _on_SyncManager_scene_despawned(_name, spawned_node) -> void:
 
 func _save_state() -> Dictionary:
 	return {
-		despawn = despawn,
 		global_position = global_position,
 	}
 
 func _load_state(state : Dictionary) -> void:
-	if state['despawn']:
-		SyncManager.despawn(self)
-		return
 	global_position = state['global_position']
