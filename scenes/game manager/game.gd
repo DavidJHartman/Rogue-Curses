@@ -16,7 +16,7 @@ func _ready() -> void:
 	current_map.name = "Current Map"
 	set_player_authority()
 	spawn_players()
-	Lobby.player_loaded()
+	Lobby.player_loaded.rpc()
 
 @rpc("authority", "call_local", "reliable")
 func start_game():

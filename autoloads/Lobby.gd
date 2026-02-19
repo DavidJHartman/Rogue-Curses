@@ -106,10 +106,10 @@ func ready_toggle(player_ready : bool):
 func _on_server_disconnected() -> void:
 	_disconnect_from_session("")
 
-func start_sync_manager() -> void:
-	if multiplayer.is_server():
-		await get_tree().create_timer(2.0).timeout
-		load_game.rpc("res://scenes/game manager/game.tscn")
+@rpc("authority", "call_local", "reliable")
+func load_game_scene() -> void:
+	await get_tree().create_timer(2.0).timeout
+	load_game.rpc("res://scenes/game manager/game.tscn")
 
 func check_players_ready() -> bool:
 	for id in players:

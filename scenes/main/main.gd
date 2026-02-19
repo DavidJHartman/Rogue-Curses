@@ -83,7 +83,7 @@ func _on_start_game_pressed() -> void:
 	if Lobby.check_players_ready() == false:
 		return
 	
-	Lobby.start_sync_manager()
+	Lobby.load_game_scene()
 
 func _on_name_field_text_changed(new_text: String) -> void:
 	Lobby.player_info["name"] = new_text
