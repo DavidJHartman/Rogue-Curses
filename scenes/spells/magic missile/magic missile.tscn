@@ -6,8 +6,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_u7od8"]
 radius = 2.0
 
-[node name="Magic Missile" type="Node2D" unique_id=137857017 groups=["network_sync"]]
+[node name="Magic Missile" type="Node2D" unique_id=137857017 node_paths=PackedStringArray("collider") groups=["network_sync"]]
 script = ExtResource("1_u7od8")
+collider = NodePath("Area2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2008502906]
 texture_filter = 1
@@ -20,6 +21,3 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1347846199]
 shape = SubResource("CircleShape2D_u7od8")
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
