@@ -14,5 +14,5 @@ func _on_SyncManager_sync_lost() -> void:
 func _on_SyncManager_sync_regained() -> void:
 	sync_lost_label.visible = false
 
-func _sync_lost() -> void:
+func _sync_lost(_msg: String) -> void:
 	sync_lost_label.visible = false

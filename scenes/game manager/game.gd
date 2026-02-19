@@ -43,6 +43,7 @@ func set_player_authority() -> void:
 	if multiplayer.is_server():
 		local_player = players[0]
 		players[1].set_multiplayer_authority(Lobby.players.keys()[1])
+		
 	else:
 		local_player = players[1]
 		players[1].set_multiplayer_authority(multiplayer.get_unique_id())

@@ -96,7 +96,7 @@ func _on_connected_ok() -> void:
 	player_connected.emit(peer_id, player_info)
 
 func _on_connected_fail():
-	_disconnect_from_session()
+	_disconnect_from_session("")
 
 @rpc("any_peer", "reliable")
 func ready_toggle(player_ready : bool):
@@ -104,7 +104,7 @@ func ready_toggle(player_ready : bool):
 	ready_change.emit(players[multiplayer.get_remote_sender_id()]["name"], player_ready)
 
 func _on_server_disconnected() -> void:
-	_disconnect_from_session()
+	_disconnect_from_session("")
 
 func start_sync_manager() -> void:
 	if multiplayer.is_server():
@@ -120,7 +120,8 @@ func check_players_ready() -> bool:
 			return false
 	return true
 
-func _disconnect_from_session() -> void:
+func _disconnect_from_session(msg : String) -> void:
+	print(msg)
 	SyncManager.stop()
 	SyncManager.clear_peers()
 	remove_multiplayer_peer()

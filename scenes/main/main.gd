@@ -97,7 +97,7 @@ func _update_ready_status(_player_name : String, ready_status : bool) -> void:
 	player_2_ready.text = ready_dict[ready_status]
 
 func _on_reset_pressed() -> void:
-	Lobby._disconnect_from_session()
+	Lobby._disconnect_from_session("")
 
 func _reload_scene() -> void:
 	get_tree().reload_current_scene()
