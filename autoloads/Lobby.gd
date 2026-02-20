@@ -123,6 +123,7 @@ func check_players_ready() -> bool:
 func _disconnect_from_session(msg : String) -> void:
 	SyncManager.stop()
 	SyncManager.clear_peers()
+	
 	remove_multiplayer_peer()
 	players.clear()
 	server_disconnected.emit()
@@ -135,7 +136,7 @@ func _update_player_info(key : String, data) -> void:
 		players[multiplayer.get_unique_id()] = player_info
 
 func _on_SyncManager_sync_started() -> void:
-	if logging_enabled:
+	if logging_enabled and not SyncReplay.active:
 		pass
 		var dir : DirAccess = DirAccess.open(LOG_FILE_DIRECTORY)
 		if not dir:
@@ -154,7 +155,7 @@ func _on_SyncManager_sync_started() -> void:
 			multiplayer.get_unique_id(),
 		]
 		
-		SyncManager.start_logging(LOG_FILE_DIRECTORY + '/' + log_file_name)
+		SyncManager.start_logging(LOG_FILE_DIRECTORY + '/' + log_file_name, {})
 		
 		$/root/Game.start_game()
 
@@ -181,3 +182,6 @@ func _load_all_character_sheets() -> void:
 		
 		# Stop iterating (optional, as the loop condition handles it)
 		dir.list_dir_end()
+
+func setup_match_for_replay(my_peer_id: int, peer_ids: Array, match_info: Dictionary) -> void:
+	pass
