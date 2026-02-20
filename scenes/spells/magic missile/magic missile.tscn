@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://3ohm557tyfpi" path="res://icon.svg" id="1_au3pi"]
 [ext_resource type="Script" uid="uid://bserm4d8rq0at" path="res://scenes/spells/magic missile/magic missile.gd" id="1_u7od8"]
 
-[node name="Magic Missile" type="Node2D" unique_id=137857017 groups=["network_sync"]]
+[node name="Magic Missile" type="Node2D" unique_id=137857017 groups=["damages_players", "network_sync"]]
 script = ExtResource("1_u7od8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2008502906]

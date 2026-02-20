@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpellResource" format=3 uid="uid://cdrin3xycvac6"]
+
+[ext_resource type="Script" uid="uid://dc6rkwqoyhkdd" path="res://scenes/spells/spell_resource.gd" id="1_nmkab"]
+[ext_resource type="PackedScene" uid="uid://cywl7ogyukx6i" path="res://scenes/spells/mark and recall/mark_and_recall.tscn" id="2_nmkab"]
+[ext_resource type="Texture2D" uid="uid://3ohm557tyfpi" path="res://icon.svg" id="3_rwj2p"]
+
+[resource]
+script = ExtResource("1_nmkab")
+spell_name = "Mark and Recall"
+spell_description = "Leave a spot on the ground and teleport back to it whenever you want."
+spell_scene = ExtResource("2_nmkab")
+spell_texture = ExtResource("3_rwj2p")
+ticks_to_charge = 2
+metadata/_custom_type_script = "uid://dc6rkwqoyhkdd"

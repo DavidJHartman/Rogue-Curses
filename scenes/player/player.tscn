@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmlin"]
 radius = 8.0
 
-[node name="Player" type="Node2D" unique_id=1160689065 node_paths=PackedStringArray("spell_slot_manager", "sprite") groups=["network_sync"]]
+[node name="Player" type="Node2D" unique_id=1160689065 node_paths=PackedStringArray("spell_slot_manager", "sprite") groups=["network_sync", "players"]]
 script = ExtResource("1_dovo2")
 spell_slot_manager = NodePath("MarginContainer/SpellSlots")
 sprite = NodePath("Sprite2D")

@@ -21,7 +21,7 @@ func _save_state() -> Dictionary:
 func _load_state(state : Dictionary) -> void:
 	visible = state["visible"]
 	current_ticks = state["current_ticks"]
-	active_spell = get_node(state["active_spell_path"]) if state["active_spell-path"] else null
+	active_spell = get_node(state["active_spell_path"]) if state["active_spell_path"] else null
 
 func _ready() -> void:
 	visible = false
@@ -44,15 +44,15 @@ func reset_spell_slot() -> void:
 	progress_bar.value = current_ticks
 	active_spell = null
 
-func button_pressed(cast_position : Vector2i, tile_position : Vector2i) -> void:
+func button_pressed(data) -> void:
 	if current_ticks >= spell_resource.ticks_to_charge and not active_spell:
-		spawn_spell({'cast_position' : cast_position, 'tile_position' : tile_position})
-	else:
-		active_spell.receive_input(cast_position, tile_position)
+		spawn_spell(data)
+	elif active_spell:
+		active_spell.receive_input(data)
 	
 
 func spawn_spell(data : Dictionary) -> void:
 	if spell_resource == null:
 		return
 	data['spellslot'] = self
-	active_spell = SyncManager.spawn(spell_resource.spell_name, $/root/Game, spell_resource.spell_scene, data)
+	active_spell = SyncManager.spawn(spell_resource.spell_name, $"/root/Game/".sub_viewport, spell_resource.spell_scene, data)

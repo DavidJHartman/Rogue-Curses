@@ -11,3 +11,15 @@ res://scenes/ui/spell slot/spell slot.gd
 res://scenes/spells/fire wall/fire wall.gd
 res://scenes/effects/fire/fire.gd
 res://scenes/spells/spell.gd
+res://scenes/player/player.tscn
+res://scenes/game manager/game.tscn
+res://scenes/player/movement serializer.gd
+res://assets/maps/test_level.tscn
+res://scenes/game manager/local_health.gd
+res://scenes/spells/hold person/hold_person.gd
+res://scenes/spells/spell resources/hold person.tres
+res://scenes/spells/hold person/hold_person.tscn
+res://scenes/player/character sheets/arcanist.tres
+res://scenes/spells/mark and recall/mark_and_recall.tscn
+res://scenes/spells/mark and recall/mark_and_recall.gd
+res://scenes/spells/spell resources/mark and recall.tres

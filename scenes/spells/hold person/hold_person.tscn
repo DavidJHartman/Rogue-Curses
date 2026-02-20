@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b8mnwr0ndhwgb"]
+
+[ext_resource type="Script" uid="uid://cbc0pa7ynklsy" path="res://scenes/spells/hold person/hold_person.gd" id="1_sek53"]
+
+[node name="hold person" type="Node2D" unique_id=1340136522 groups=["network_sync"]]
+script = ExtResource("1_sek53")

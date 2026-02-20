@@ -5,13 +5,17 @@ class_name Player extends Node2D
 @export var sprite : Sprite2D
 
 @onready var spell_slots : Array = $%SpellSlots.get_children()
+var health : int = 3
+
 var selected_spell_slot : int = 0
 var tile_position : Vector2i
 var tilemap : LevelMap
 var tick_timer : NetworkTimer
 var other_players : Array = []
-var can_move : bool = false
+var move_ticks : int = 0
 var frame_1 : bool = true
+
+signal dead
 
 func update_character_sheet() -> void:
 	tick_timer.timeout.connect(update_can_move)
@@ -85,10 +89,13 @@ func _predict_remote_input(previous_input: Dictionary, _ticks_since_real_input: 
 	return {}
 
 func _network_process(input: Dictionary) -> void:
-	if can_move:
+	if health <= 0:
+		dead.emit()
+	
+	if move_ticks == 1:
 		var movement_vector : Vector2 = Vector2(input.get("input_vector", Vector2.ZERO) * 16)
 		if movement_vector != Vector2.ZERO:
-			can_move = false
+			move_ticks = 0
 			position += Vector2(input.get("input_vector", Vector2.ZERO) * 16)
 			tile_position = tilemap.tilemap.local_to_map(global_position)
 	
@@ -96,10 +103,10 @@ func _network_process(input: Dictionary) -> void:
 		selected_spell_slot = input.get("spell_index")
 	if input.get("cast_spell", false):
 		var data = {}
-		data['spellslot'] = self
-		data['tile_position'] = tile_position
+		data['cast_position'] = tile_position
 		data['click_position'] = input.get("click_position")
-		spell_slots[selected_spell_slot].button_pressed(tile_position, input.get("click_position"))
+		data['caster'] = self.get_path()
+		spell_slots[selected_spell_slot].button_pressed(data)
 	
 	set_visibility()
 
@@ -109,7 +116,8 @@ func _save_state() -> Dictionary:
 		tile_position = tile_position,
 		frame_1 = frame_1,
 		selected_spell_slot = selected_spell_slot,
-		can_move = can_move,
+		move_ticks = move_ticks,
+		health = health,
 	}
 
 func _load_state(state : Dictionary) -> void:
@@ -117,7 +125,8 @@ func _load_state(state : Dictionary) -> void:
 	tile_position = state["tile_position"]
 	frame_1 = state["frame_1"]
 	selected_spell_slot = state["selected_spell_slot"]
-	can_move = state["can_move"]
+	move_ticks = state["move_ticks"]
+	health = state["health"]
 
 func set_visibility() -> void:
 	var my_peer_id : int
@@ -139,7 +148,7 @@ func set_visibility() -> void:
 		player.visible = true
 
 func update_can_move() -> void:
-	can_move = true
+	if move_ticks < 1: move_ticks += 1
 
 func update_spells() -> void:
 	var spell_resources : Array = character_sheet.get_spells()
@@ -160,3 +169,9 @@ func update_animation() -> void:
 	else:
 		sprite.region_rect.position.x = character_sheet.sprite_float_rect[character_sheet.character_index].position.x
 		frame_1 = true
+
+func decrement_health() -> void:
+	health -= 1
+
+func lose_turn(ticks_to_lose : int) -> void:
+	move_ticks = ticks_to_lose

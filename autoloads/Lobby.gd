@@ -68,6 +68,8 @@ func player_loaded():
 	if multiplayer.is_server():
 		players_loaded += 1
 		if players_loaded == players.size() - 1:
+			for player in players:
+				players[player]["ready"] = false
 			await get_tree().create_timer(2).timeout
 			SyncManager.start()
 			players_loaded = 0

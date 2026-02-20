@@ -34,6 +34,8 @@ enabled=PackedStringArray("res://addons/godot-rollback-netcode/plugin.cfg")
 [global_group]
 
 network_sync="Nodes in this group participate in rollback."
+damages_players=""
+players=""
 
 [input]
 

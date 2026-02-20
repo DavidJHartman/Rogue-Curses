@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cywl7ogyukx6i"]
+
+[ext_resource type="Script" uid="uid://b382f78t2nmhd" path="res://scenes/spells/mark and recall/mark_and_recall.gd" id="1_10hkk"]
+[ext_resource type="Texture2D" uid="uid://3ohm557tyfpi" path="res://icon.svg" id="1_ok8ef"]
+
+[node name="mark and recall" type="Node2D" unique_id=2046523819]
+script = ExtResource("1_10hkk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=128956844]
+scale = Vector2(0.126, 0.126)
+texture = ExtResource("1_ok8ef")

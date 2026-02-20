@@ -21,7 +21,10 @@ func _ready() -> void:
 	active = false
 	visible = true
 
-func receive_input(_cast_position : Vector2i, _tile_position : Vector2i) -> void:
+func _check_damage_player() -> void:
+	return
+
+func receive_input(_data : Dictionary) -> void:
 	return
 
 func _save_state() -> Dictionary:

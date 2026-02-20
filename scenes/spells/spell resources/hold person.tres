@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpellResource" format=3 uid="uid://bbnrje1tl2rtk"]
+
+[ext_resource type="Script" uid="uid://dc6rkwqoyhkdd" path="res://scenes/spells/spell_resource.gd" id="1_nv5xr"]
+[ext_resource type="PackedScene" uid="uid://b8mnwr0ndhwgb" path="res://scenes/spells/hold person/hold_person.tscn" id="2_nv5xr"]
+[ext_resource type="Texture2D" uid="uid://3ohm557tyfpi" path="res://icon.svg" id="3_ty44i"]
+
+[resource]
+script = ExtResource("1_nv5xr")
+spell_name = "Hold Person"
+spell_description = "Force a target to stay put for a little while"
+spell_scene = ExtResource("2_nv5xr")
+spell_texture = ExtResource("3_ty44i")
+ticks_to_charge = 3
+metadata/_custom_type_script = "uid://dc6rkwqoyhkdd"

@@ -1,17 +1,17 @@
 extends "res://addons/godot-rollback-netcode/MessageSerializer.gd"
 
 const input_path_mapping := {
-	'/root/Game/Player' : 1,
-	'/root/Game/Player2': 2,
-	'/root/Game/Player3': 3,
-	'/root/Game/Player4': 4
+	'/root/Game/SubViewportContainer/SubViewport/Player' : 1,
+	'/root/Game/SubViewportContainer/SubViewport/Player2': 2,
+	'/root/Game/SubViewportContainer/SubViewport/Player3': 3,
+	'/root/Game/SubViewportContainer/SubViewport/Player4': 4
 }
 
 const input_path_mapping_reversed := {
-	1 : '/root/Game/Player',
-	2 : '/root/Game/Player2',
-	3 : '/root/Game/Player3',
-	4 : '/root/Game/Player4'
+	1 : '/root/Game/SubViewportContainer/SubViewport/Player',
+	2 : '/root/Game/SubViewportContainer/SubViewport/Player2',
+	3 : '/root/Game/SubViewportContainer/SubViewport/Player3',
+	4 : '/root/Game/SubViewportContainer/SubViewport/Player4'
 }
 
 enum HeaderFlags{

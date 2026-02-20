@@ -3,10 +3,14 @@
 [ext_resource type="Script" uid="uid://mktwunkgkyqx" path="res://scenes/player/character sheet.gd" id="1_t4qje"]
 [ext_resource type="Resource" uid="uid://dqj44bgp57hve" path="res://scenes/spells/spell resources/magic missile.tres" id="2_e2eel"]
 [ext_resource type="Resource" uid="uid://cpkqqiu02ppyn" path="res://scenes/spells/spell resources/fire wall.tres" id="3_5f8qc"]
+[ext_resource type="Resource" uid="uid://bbnrje1tl2rtk" path="res://scenes/spells/spell resources/hold person.tres" id="4_2fpwp"]
+[ext_resource type="Resource" uid="uid://cdrin3xycvac6" path="res://scenes/spells/spell resources/mark and recall.tres" id="5_q7r3w"]
 
 [resource]
 script = ExtResource("1_t4qje")
 character_name = "Arcanist"
 spell_1 = ExtResource("2_e2eel")
 spell_2 = ExtResource("3_5f8qc")
+spell_3 = ExtResource("4_2fpwp")
+spell_4 = ExtResource("5_q7r3w")
 metadata/_custom_type_script = "uid://mktwunkgkyqx"

@@ -4,13 +4,22 @@ extends Node2D
 @export var sprite : Sprite2D
 var current_ticks : int = 0
 var frame_1 : bool = true
+@onready var game : Node2D = $"/root/Game"
 
 func _network_spawn(data : Dictionary) -> void:
 	$"/root/Game/NetworkTimer".timeout.connect(update_animation)
 	$"/root/Game/NetworkTimer".timeout.connect(increment_ticks)
 	global_position = data["position"] * 16 + Vector2(8, 8)
 
+func check_damage_players() -> void:
+	var tile_position : Vector2i = game.current_map.tilemap.local_to_map(global_position)
+	for player in get_tree().get_nodes_in_group("players"):
+		if (player.tile_position - tile_position) == Vector2i.ZERO:
+			player.decrement_health()
+			return
+
 func increment_ticks() -> void:
+	check_damage_players()
 	current_ticks += 1
 	if ticks_alive == current_ticks:
 		SyncManager.despawn(self)

@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func _network_spawn(data : Dictionary) -> void:
 	parent_nodepath = data["spellslot_path"]
-	start_position = data["tile_position"]
+	start_position = data["click_position"]
 
 func _on_SyncManager_scene_spawned(_name, spawned_node, _scene, _data) -> void:
 	if spawned_node == self:
@@ -21,8 +21,8 @@ func _on_SyncManager_scene_despawned(_name, spawned_node) -> void:
 	if spawned_node == self and not active:
 		spell_cast.disconnect(get_node(parent_nodepath).reset_spell_slot)
 
-func receive_input(_cast_position : Vector2i, _tile_position : Vector2i) -> void:
-	end_position = _tile_position
+func receive_input(data : Dictionary) -> void:
+	end_position = data["click_position"]
 	spawn_fire()
 	spell_cast.emit()
 	SyncManager.despawn(self)
@@ -42,7 +42,7 @@ func spawn_fire() -> void:
 	var err: int = dx - dy
 	
 	while true:
-		SyncManager.spawn("Fire", $/root/Game, fire_effect, {"position" : Vector2(x0, y0)})
+		SyncManager.spawn("Fire", $/root/Game/SubViewportContainer/SubViewport, fire_effect, {"position" : Vector2(x0, y0)})
 		
 		if x0 == x1 and y0 == y1:
 			break
