@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func _network_spawn(data : Dictionary) -> void:
 	parent_nodepath = data["spellslot_path"]
-	global_position = data["tile_position"]
+	global_position = data["click_position"]
 	if not active:
 		spell_cast.connect(get_node(parent_nodepath).reset_spell_slot)
 		active = true
