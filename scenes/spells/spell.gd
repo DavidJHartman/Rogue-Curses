@@ -21,7 +21,7 @@ func _ready() -> void:
 	active = false
 	visible = true
 
-func receive_input(_cast_position : Vector2, _tile_position : Vector2i) -> void:
+func receive_input(_cast_position : Vector2i, _tile_position : Vector2i) -> void:
 	return
 
 func _save_state() -> Dictionary:

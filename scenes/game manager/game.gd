@@ -33,7 +33,7 @@ func spawn_players() -> void:
 		players[i].character_sheet = Lobby.character_sheets[Lobby.players[players[i].get_multiplayer_authority()]["class_index"]]
 		
 		players[i].update_character_sheet()
-		
+	
 	for player in players:
 		player.other_players = players
 
@@ -46,6 +46,3 @@ func set_player_authority() -> void:
 	else:
 		local_player = players[1]
 		players[1].set_multiplayer_authority(multiplayer.get_unique_id())
-
-func setup_match_for_replay(my_peer_id: int, peer_ids: Array, match_info: Dictionary) -> void:
-	get_tree().change_scene_to_file("res://scenes/game manager/game.tscn")

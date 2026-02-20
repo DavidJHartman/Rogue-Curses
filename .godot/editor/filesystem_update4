@@ -8,3 +8,6 @@ res://addons/godot-rollback-netcode/Plugin.gd
 res://scenes/spells/magic missile/magic missile.gd
 res://scenes/player/player.gd
 res://scenes/ui/spell slot/spell slot.gd
+res://scenes/spells/fire wall/fire wall.gd
+res://scenes/effects/fire/fire.gd
+res://scenes/spells/spell.gd

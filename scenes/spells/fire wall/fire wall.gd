@@ -5,19 +5,27 @@ extends Spell
 var start_position : Vector2i = Vector2.ZERO
 var end_position : Vector2i = Vector2.ZERO
 
-func _network_process(_input: Dictionary) -> void:
-	if not active:
-		return
+func _ready() -> void:
+	SyncManager.scene_despawned.connect(_on_SyncManager_scene_despawned)
+	SyncManager.scene_spawned.connect(_on_SyncManager_scene_spawned)
 
-func receive_input(_cast_position : Vector2, _tile_position : Vector2i) -> void:
-	if not active:
-		active = true
-		start_position = _tile_position
-	else:
-		end_position = _tile_position
-		spawn_fire()
-		spell_cast.emit()
-		SyncManager.despawn(self)
+func _network_spawn(data : Dictionary) -> void:
+	parent_nodepath = data["spellslot_path"]
+	start_position = data["tile_position"]
+
+func _on_SyncManager_scene_spawned(_name, spawned_node, _scene, _data) -> void:
+	if spawned_node == self:
+		spell_cast.connect(get_node(parent_nodepath).reset_spell_slot)
+
+func _on_SyncManager_scene_despawned(_name, spawned_node) -> void:
+	if spawned_node == self and not active:
+		spell_cast.disconnect(get_node(parent_nodepath).reset_spell_slot)
+
+func receive_input(_cast_position : Vector2i, _tile_position : Vector2i) -> void:
+	end_position = _tile_position
+	spawn_fire()
+	spell_cast.emit()
+	SyncManager.despawn(self)
 
 func spawn_fire() -> void:
 	var x1 : int = end_position.x

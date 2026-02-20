@@ -17,6 +17,8 @@ func _network_spawn(data : Dictionary) -> void:
 	direction = data['tile_position'] - data['cast_position']
 	global_position = (Vector2(data['cast_position'] * 16) + Vector2(8, 8)) + direction
 	spell_cast.emit.call_deferred()
+	if not active:
+		spell_cast.connect(get_node(parent_nodepath).reset_spell_slot)
 	active = true
 
 func _network_process(_input: Dictionary) -> void:
@@ -27,7 +29,7 @@ func _network_process(_input: Dictionary) -> void:
 	global_position += direction.normalized() * speed
 
 func _on_SyncManager_scene_spawned(_name, spawned_node, _scene, _data) -> void:
-	if spawned_node == self and not active:
+	if spawned_node == self:
 		spell_cast.connect(get_node(parent_nodepath).reset_spell_slot)
 
 func _on_SyncManager_scene_despawned(_name, spawned_node) -> void:
