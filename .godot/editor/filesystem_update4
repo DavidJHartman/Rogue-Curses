@@ -1,3 +1,10 @@
 res://scenes/main/main.tscn
 res://autoloads/Lobby.gd
 res://scenes/main/main.gd
+res://scenes/game manager/game.gd
+res://scenes/spells/magic missile/magic missile.tscn
+res://addons/godot-rollback-netcode/SyncDebugger.gd
+res://addons/godot-rollback-netcode/Plugin.gd
+res://scenes/spells/magic missile/magic missile.gd
+res://scenes/player/player.gd
+res://scenes/ui/spell slot/spell slot.gd

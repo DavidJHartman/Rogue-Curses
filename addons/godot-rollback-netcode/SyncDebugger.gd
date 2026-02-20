@@ -41,6 +41,7 @@ func show_debug_overlay(_visible: bool = true) -> void:
 		_debug_overlay.visible = _visible
 
 func hide_debug_overlay() -> void:
+	return
 	if _debug_overlay:
 		show_debug_overlay(false)
 

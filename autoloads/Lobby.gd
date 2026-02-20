@@ -182,6 +182,3 @@ func _load_all_character_sheets() -> void:
 		
 		# Stop iterating (optional, as the loop condition handles it)
 		dir.list_dir_end()
-
-func setup_match_for_replay(my_peer_id: int, peer_ids: Array, match_info: Dictionary) -> void:
-	pass

@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 SyncManager="*uid://dfedbb4yvumnk"
 Lobby="*uid://cv18akob1kwh3"
 SyncReplay="*uid://cbb4dubip604v"
+SyncDebugger="*uid://f1kplbo54vww"
 
 [display]
 
@@ -37,11 +38,6 @@ network_sync="Nodes in this group participate in rollback."
 
 [input]
 
-sync_debug={
-&"deadzone": 0.5,
-&"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194342,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
-]
-}
 spell_1={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":49,"key_label":0,"unicode":49,"location":0,"echo":false,"script":null)
@@ -91,6 +87,12 @@ move_left={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+sync_debug={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":112,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194342,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
 
 [layer_names]
 
@@ -101,7 +103,7 @@ move_left={
 [network]
 
 rollback/classes/message_serializer="uid://coocal4rjh4de"
-rollback/log_inspector/replay_match_scene_path="uid://76i2thd41fap"
+rollback/log_inspector/replay_match_scene_path="uid://3s7j6g8jt7iv"
 
 [physics]
 
