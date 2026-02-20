@@ -5,6 +5,7 @@
 
 [node name="Fire" type="Node2D" unique_id=137045051 node_paths=PackedStringArray("sprite") groups=["network_sync"]]
 script = ExtResource("1_s8j20")
+ticks_alive = null
 sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=193095513]
