@@ -6,6 +6,10 @@ var current_ticks : int = 0
 var frame_1 : bool = true
 @onready var game : Node2D = $"/root/Game"
 
+func _ready() -> void:
+	SyncManager.set_synced(self, "frame_1", frame_1)
+	SyncManager.set_synced(self, "current_ticks", current_ticks)
+
 func _network_spawn(data : Dictionary) -> void:
 	$"/root/Game/NetworkTimer".timeout.connect(update_animation)
 	$"/root/Game/NetworkTimer".timeout.connect(increment_ticks)
@@ -17,7 +21,6 @@ func check_damage_players() -> void:
 		if (player.tile_position - tile_position) == Vector2i.ZERO:
 			player.decrement_health()
 			return
-
 
 func _process(_delta : float) -> void:
 	set_visibility()
@@ -53,13 +56,3 @@ func update_animation() -> void:
 	else:
 		sprite.region_rect.position.x -= 16
 		frame_1 = true
-
-func _save_state() -> Dictionary:
-	return{
-		"frame_1" : frame_1,
-		"current_ticks" : current_ticks
-	}
-
-func _load_state(state : Dictionary) -> void:
-	frame_1 = state["frame_1"]
-	current_ticks = state["current_ticks"]

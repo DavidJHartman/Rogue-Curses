@@ -1,4 +1,4 @@
-extends "res://addons/godot-rollback-netcode/MessageSerializer.gd"
+extends "res://addons/delta_rollback/MessageSerializer.gd"
 
 const input_path_mapping := {
 	'/root/Game/SubViewportContainer/SubViewport/Player' : 1,
@@ -57,9 +57,9 @@ func serialize_input(all_input: Dictionary) -> PackedByteArray:
 		
 		#This is where we actually encode the information.
 		if input.has('input_vector'):
-			var input_vector : Vector2 = input['input_vector']
-			buffer.put_float(input_vector.x)
-			buffer.put_float(input_vector.y)
+			var input_vector : Vector2i = input['input_vector']
+			buffer.put_8(input_vector.x)
+			buffer.put_8(input_vector.y)
 		if input.has('cast_spell'):
 			var click_position : Vector2i = input['click_position']
 			buffer.put_8(click_position.x)
@@ -93,7 +93,7 @@ func unserialize_input(serialized: PackedByteArray) -> Dictionary:
 	#This should be the only place we need to add info to add subsequent inputs.
 	var header = buffer.get_u8()
 	if header & HeaderFlags.HAS_INPUT_VECTOR:
-		input["input_vector"] = Vector2(buffer.get_float(), buffer.get_float())
+		input["input_vector"] = Vector2i(buffer.get_8(), buffer.get_8())
 	if header & HeaderFlags.CAST_SPELL:
 		input["cast_spell"] = true
 		input["click_position"] = Vector2i(buffer.get_8(), buffer.get_8())

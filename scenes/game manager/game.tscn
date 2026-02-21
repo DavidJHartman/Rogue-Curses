@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cyhxvwgvrv18w" path="res://scenes/player/player.tscn" id="1_768nf"]
 [ext_resource type="Script" uid="uid://d0ig5fyexath6" path="res://scenes/game manager/game.gd" id="1_bciut"]
 [ext_resource type="Script" uid="uid://botx0e765nm5j" path="res://scenes/game manager/progress_bar.gd" id="3_h5nyn"]
-[ext_resource type="Script" uid="uid://g0d43p8fyevx" path="res://addons/godot-rollback-netcode/NetworkTimer.gd" id="4_h567x"]
+[ext_resource type="Script" uid="uid://102ie0rnxebk" path="res://addons/delta_rollback/NetworkTimer.gd" id="4_h567x"]
 [ext_resource type="Script" uid="uid://hkrkwie5sh61" path="res://scenes/main/sync label.gd" id="5_h567x"]
 [ext_resource type="Script" uid="uid://cf486h5ej2ev4" path="res://scenes/game manager/local_health.gd" id="6_7dq5w"]
 

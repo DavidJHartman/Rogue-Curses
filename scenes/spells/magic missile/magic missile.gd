@@ -7,17 +7,18 @@ extends Spell
 var direction : Vector2 = Vector2.ZERO
 
 func _ready() -> void:
-	SyncManager.scene_despawned.connect(_on_SyncManager_scene_despawned)
-	SyncManager.scene_spawned.connect(_on_SyncManager_scene_spawned)
+	SyncManager.set_synced(self, "global_position", global_position)
+	SyncManager.set_synced(self, "direction", direction)
+	SyncManager.set_synced(self, "active", active)
+	
 
 func _network_spawn(data : Dictionary) -> void:
 	parent_nodepath = data["spellslot_path"]
 	direction = data['click_position'] - data['cast_position']
 	global_position = (Vector2(data['cast_position'] * 16) + Vector2(8, 8)) + (direction.normalized() * 16)
-	if not active:
-		spell_cast.connect(get_node(parent_nodepath).reset_spell_slot)
-		active = true
+	active = true
 	
+	spell_cast.connect(get_node(parent_nodepath).reset_spell_slot)
 	spell_cast.emit.call_deferred()
 
 func _process(_delta : float) -> void:
@@ -56,23 +57,3 @@ func check_damage_players() -> void:
 			player.decrement_health()
 			SyncManager.despawn(self)
 			return
-
-func _on_SyncManager_scene_spawned(_name, spawned_node, _scene, _data) -> void:
-	if spawned_node == self and not active:
-		spell_cast.connect(get_node(parent_nodepath).reset_spell_slot)
-
-func _on_SyncManager_scene_despawned(_name, spawned_node) -> void:
-	if spawned_node == self and not active:
-		spell_cast.disconnect(get_node(parent_nodepath).reset_spell_slot)
-
-func _save_state() -> Dictionary:
-	return {
-		global_position = global_position,
-		direction = direction,
-		active = active
-	}
-
-func _load_state(state : Dictionary) -> void:
-	global_position = state['global_position']
-	direction = state['direction']
-	active = state['active']

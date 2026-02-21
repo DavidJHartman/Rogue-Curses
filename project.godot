@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SyncManager="*uid://dfedbb4yvumnk"
+SyncManager="*uid://xohxvtt4jjfo"
 Lobby="*uid://cv18akob1kwh3"
-SyncReplay="*uid://cbb4dubip604v"
+SyncReplay="*uid://dyeao8mh1nxea"
 
 [display]
 
@@ -29,7 +29,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-rollback-netcode/plugin.cfg")
+enabled=PackedStringArray()
 
 [global_group]
 

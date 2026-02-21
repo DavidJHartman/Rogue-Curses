@@ -16,6 +16,20 @@ var move_ticks : int = 0
 var frame_1 : bool = true
 
 signal dead
+func _save_state() -> Dictionary:
+	return {
+		tile_position = tile_position,
+		frame_1 = frame_1,
+		selected_spell_slot = selected_spell_slot,
+		move_ticks = move_ticks,
+		health = health,
+	}
+func _ready() -> void:
+	SyncManager.set_synced(self, "tile_position", tile_position)
+	SyncManager.set_synced(self, "frame_1", frame_1)
+	SyncManager.set_synced(self, "selected_spell_slot", selected_spell_slot)
+	SyncManager.set_synced(self, "move_ticks", move_ticks)
+	SyncManager.set_synced(self, "health", health)
 
 func update_character_sheet() -> void:
 	tick_timer.timeout.connect(update_can_move)
@@ -34,7 +48,7 @@ func update_character_sheet() -> void:
 			spell_slot_manager.visible = true
 
 func _get_local_input() -> Dictionary:
-	var input_vector : Vector2i = Vector2.ZERO
+	var input_vector : Vector2i = Vector2i.ZERO
 	var select_spell : bool = false
 	var new_spell_slot : int
 	if Input.is_action_just_pressed("move_up"):
@@ -95,9 +109,9 @@ func _network_process(input: Dictionary) -> void:
 	if move_ticks == 1:
 		var movement_vector : Vector2 = Vector2(input.get("input_vector", Vector2.ZERO) * 16)
 		if movement_vector != Vector2.ZERO:
+			tile_position += input.get("input_vector", Vector2i.ZERO)
+			global_position = tilemap.tilemap.map_to_local(tile_position)
 			move_ticks = 0
-			position += Vector2(input.get("input_vector", Vector2.ZERO) * 16)
-			tile_position = tilemap.tilemap.local_to_map(global_position)
 	
 	if input.get("select_spell"):
 		selected_spell_slot = input.get("spell_index")
@@ -109,24 +123,6 @@ func _network_process(input: Dictionary) -> void:
 		spell_slots[selected_spell_slot].button_pressed(data)
 	
 	set_visibility()
-
-func _save_state() -> Dictionary:
-	return {
-		position = position,
-		tile_position = tile_position,
-		frame_1 = frame_1,
-		selected_spell_slot = selected_spell_slot,
-		move_ticks = move_ticks,
-		health = health,
-	}
-
-func _load_state(state : Dictionary) -> void:
-	position = state["position"]
-	tile_position = state["tile_position"]
-	frame_1 = state["frame_1"]
-	selected_spell_slot = state["selected_spell_slot"]
-	move_ticks = state["move_ticks"]
-	health = state["health"]
 
 func set_visibility() -> void:
 	var my_peer_id : int

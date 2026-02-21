@@ -5,21 +5,16 @@ extends Spell
 var start_position : Vector2i = Vector2.ZERO
 var end_position : Vector2i = Vector2.ZERO
 
+func _load_state(state : Dictionary) -> void:
+	start_position = state["start_position"]
+	end_position = state["end_position"]
 func _ready() -> void:
-	SyncManager.scene_despawned.connect(_on_SyncManager_scene_despawned)
-	SyncManager.scene_spawned.connect(_on_SyncManager_scene_spawned)
+	SyncManager.set_synced(self, "start_position", start_position)
+	SyncManager.set_synced(self, "end_position", end_position)
 
 func _network_spawn(data : Dictionary) -> void:
 	parent_nodepath = data["spellslot_path"]
 	start_position = data["click_position"]
-
-func _on_SyncManager_scene_spawned(_name, spawned_node, _scene, _data) -> void:
-	if spawned_node == self:
-		spell_cast.connect(get_node(parent_nodepath).reset_spell_slot)
-
-func _on_SyncManager_scene_despawned(_name, spawned_node) -> void:
-	if spawned_node == self and not active:
-		spell_cast.disconnect(get_node(parent_nodepath).reset_spell_slot)
 
 func receive_input(data : Dictionary) -> void:
 	end_position = data["click_position"]
@@ -56,13 +51,3 @@ func spawn_fire() -> void:
 		if e2 < dx:
 			err += dx
 			y0 += sy
-
-func _save_state() -> Dictionary:
-	return {
-		start_position = start_position,
-		end_position = end_position
-	}
-
-func _load_state(state : Dictionary) -> void:
-	start_position = state["start_position"]
-	end_position = state["end_position"]
