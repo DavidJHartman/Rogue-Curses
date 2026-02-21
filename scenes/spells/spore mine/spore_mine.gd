@@ -16,12 +16,9 @@ func _ready() -> void:
 
 func _network_spawn(data : Dictionary) -> void:
 	player = get_node(data["caster"])
-	parent_nodepath = data["spellslot_path"]
 	tile_position = data['cast_position']
 	global_position = (Vector2(data['cast_position'] * 16) + Vector2(8, 8))
-	spell_cast.connect(get_node(parent_nodepath).reset_spell_slot)
 	remote_visibility.my_player = player
-	spell_cast.emit.call_deferred()
 
 func _network_despawn() -> void:
 	remote_visibility.clean_up_on_despawn()
@@ -47,4 +44,7 @@ func _explode() -> void:
 			if tilemap.query_location(check_pos):
 				continue
 			SyncManager.spawn("spore cloud",  $/root/Game/SubViewportContainer/SubViewport, spore_cloud, {position = check_pos})
-	pass
+	SyncManager.despawn(self)
+
+func decrement_health() -> void:
+	_explode()

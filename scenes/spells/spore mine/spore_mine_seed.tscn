@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://qytp2j4f8p73"]
+
+[ext_resource type="Texture2D" uid="uid://3ohm557tyfpi" path="res://icon.svg" id="1_6pmk1"]
+[ext_resource type="Script" uid="uid://dqd8ar4yle8c7" path="res://scenes/spells/spore mine/spore_mine_seed.gd" id="1_vxodl"]
+[ext_resource type="PackedScene" uid="uid://ddgjhillfje12" path="res://scenes/spells/spore mine/spore mine.tscn" id="2_qrb3f"]
+
+[node name="spore mine seed" type="Node2D" unique_id=212858916 groups=["network_sync"]]
+script = ExtResource("1_vxodl")
+spore_mine = ExtResource("2_qrb3f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=642850802]
+scale = Vector2(0.128, 0.128)
+texture = ExtResource("1_6pmk1")

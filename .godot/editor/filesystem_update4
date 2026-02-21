@@ -10,3 +10,5 @@ res://scenes/effects/spore cloud/spore_cloud.gd
 res://scenes/player/character sheets/wilds master.tres
 res://scenes/spells/spell resources/spore mine.tres
 res://scenes/game manager/game.gd
+res://scenes/spells/spore mine/spore_mine_seed.tscn
+res://scenes/spells/spore mine/spore_mine_seed.gd

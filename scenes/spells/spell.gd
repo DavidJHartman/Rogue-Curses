@@ -6,6 +6,7 @@ var parent_nodepath : NodePath
 signal spell_cast
 
 func _network_spawn_preprocess(data : Dictionary) -> Dictionary:
+	if not data.has('spellslot'): return data
 	data['spellslot_path'] = data['spellslot'].get_path()
 	data.erase('spellslot')
 	return data
