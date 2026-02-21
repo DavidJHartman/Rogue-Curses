@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ca8nds5qqwd52"]
+
+[ext_resource type="Script" uid="uid://qjxo75e4j2ch" path="res://scenes/effects/spore cloud/spore_cloud.gd" id="1_7ps3w"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y2ox0"]
+load_path = "res://.godot/imported/Effects.png-53735b312fc583d1d298cc482b737abb.ctex"
+
+[node name="spore cloud" type="Node2D" unique_id=1243728969 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_7ps3w")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1822617668]
+texture_filter = 1
+texture = SubResource("CompressedTexture2D_y2ox0")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)

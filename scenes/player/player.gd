@@ -15,6 +15,8 @@ var other_players : Array = []
 var move_ticks : int = 0
 var frame_1 : bool = true
 
+var line_of_site_entities : Dictionary = {}
+
 signal dead
 func _save_state() -> Dictionary:
 	return {

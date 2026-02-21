@@ -41,7 +41,6 @@ func start_game():
 	tick_timer.start()
 
 func spawn_players() -> void:
-	print("Hey")
 	var spawn_points = current_map.get_spawn_points()
 	for i in (players.size()):
 		sub_viewport.add_child(players[i])

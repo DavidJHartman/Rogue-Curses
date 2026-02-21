@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpellResource" format=3 uid="uid://dle36hybxftgy"]
+
+[ext_resource type="Script" uid="uid://dc6rkwqoyhkdd" path="res://scenes/spells/spell_resource.gd" id="1_gpc3f"]
+[ext_resource type="PackedScene" uid="uid://ddgjhillfje12" path="res://scenes/spells/spore mine/spore mine.tscn" id="2_gpc3f"]
+[ext_resource type="Texture2D" uid="uid://3ohm557tyfpi" path="res://icon.svg" id="3_uwgfs"]
+
+[resource]
+script = ExtResource("1_gpc3f")
+spell_name = "Spore Mine"
+spell_description = "Spawn a mine on the ground at your feet. If an enemy gets too close, it will explode and poison them."
+spell_scene = ExtResource("2_gpc3f")
+spell_texture = ExtResource("3_uwgfs")
+ticks_to_charge = 5
+metadata/_custom_type_script = "uid://dc6rkwqoyhkdd"
