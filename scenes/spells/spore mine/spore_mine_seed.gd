@@ -1,7 +1,7 @@
 extends Spell
 
 @export var speed : float = 1.0
-@export var spore_mine : PackedScene
+@export var mine : PackedScene
 
 @onready var game : Node2D = $"/root/Game"
 
@@ -41,7 +41,7 @@ func _network_process(_input: Dictionary) -> void:
 			"spellslot_path" = parent_nodepath,
 			"cast_position" = end_position,
 		}
-		SyncManager.spawn("spore mine", $/root/Game/SubViewportContainer/SubViewport, spore_mine, data)
+		SyncManager.spawn("mine", $/root/Game/SubViewportContainer/SubViewport, mine, data)
 		SyncManager.despawn(self)
 		return
 	

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://btiwv2qgfn4q0"]
+
+[ext_resource type="Script" uid="uid://vndh2xeqljhb" path="res://scenes/spells/entangle mine/entangle_mine.gd" id="1_0d4qh"]
+[ext_resource type="Texture2D" uid="uid://yw7e1lxkajsl" path="res://assets/bomb.png" id="1_h5oil"]
+[ext_resource type="Script" uid="uid://b65oue2vxspft" path="res://scenes/spells/spore mine/remote_visibility.gd" id="2_0d4qh"]
+
+[node name="entangle mine" type="Node2D" unique_id=1148225790]
+script = ExtResource("1_0d4qh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1335366644]
+scale = Vector2(0.128, 0.128)
+texture = ExtResource("1_h5oil")
+
+[node name="Remote Visibility" type="Node2D" parent="." unique_id=165978919]
+script = ExtResource("2_0d4qh")

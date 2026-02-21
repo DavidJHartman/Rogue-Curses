@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://rip8m21drsfy"]
+
+[ext_resource type="Script" uid="uid://dqd8ar4yle8c7" path="res://scenes/spells/spore mine/spore_mine_seed.gd" id="1_f2lld"]
+[ext_resource type="Texture2D" uid="uid://3ohm557tyfpi" path="res://icon.svg" id="2_vb085"]
+
+[node name="entangle mine seed" type="Node2D" unique_id=1548240941 groups=["network_sync"]]
+script = ExtResource("1_f2lld")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1718550183]
+scale = Vector2(0.128, 0.128)
+texture = ExtResource("2_vb085")
