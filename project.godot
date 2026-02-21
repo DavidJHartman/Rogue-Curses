@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 SyncManager="*uid://xohxvtt4jjfo"
 Lobby="*uid://cv18akob1kwh3"
 SyncReplay="*uid://dyeao8mh1nxea"
+SyncDebugger="*uid://dsi2fbr4puyhr"
 
 [display]
 
