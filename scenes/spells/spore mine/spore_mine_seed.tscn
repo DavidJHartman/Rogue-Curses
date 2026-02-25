@@ -6,7 +6,7 @@
 
 [node name="spore mine seed" type="Node2D" unique_id=212858916 groups=["network_sync"]]
 script = ExtResource("1_vxodl")
-spore_mine = ExtResource("2_qrb3f")
+mine = ExtResource("2_qrb3f")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=642850802]
 scale = Vector2(0.128, 0.128)

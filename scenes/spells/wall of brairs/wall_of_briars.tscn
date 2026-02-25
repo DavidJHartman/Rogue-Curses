@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bupacqsx13mxx"]
+
+[ext_resource type="Script" uid="uid://dcfud1cjrsr0e" path="res://scenes/spells/wall of brairs/wall_of_briars.gd" id="1_esucv"]
+[ext_resource type="PackedScene" uid="uid://b3aogljfdrbhu" path="res://scenes/effects/briar/briar.tscn" id="2_4ps4p"]
+
+[node name="wall of briars" type="Node2D" unique_id=648075346]
+script = ExtResource("1_esucv")
+fire_effect = ExtResource("2_4ps4p")

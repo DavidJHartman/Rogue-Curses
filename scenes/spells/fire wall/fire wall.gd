@@ -5,9 +5,6 @@ extends Spell
 var start_position : Vector2i = Vector2.ZERO
 var end_position : Vector2i = Vector2.ZERO
 
-func _load_state(state : Dictionary) -> void:
-	start_position = state["start_position"]
-	end_position = state["end_position"]
 func _ready() -> void:
 	SyncManager.set_synced(self, "start_position", start_position)
 	SyncManager.set_synced(self, "end_position", end_position)

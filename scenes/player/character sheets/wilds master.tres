@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://mktwunkgkyqx" path="res://scenes/player/character sheet.gd" id="1_56iyt"]
 [ext_resource type="Resource" uid="uid://dle36hybxftgy" path="res://scenes/spells/spell resources/spore mine.tres" id="2_56iyt"]
+[ext_resource type="Resource" uid="uid://cocg4a55vrpsi" path="res://scenes/spells/spell resources/entangle mine.tres" id="3_oaojc"]
+[ext_resource type="Resource" uid="uid://mdveaivnw6q7" path="res://scenes/spells/spell resources/wall of briars.tres" id="4_tb1ry"]
 
 [resource]
 script = ExtResource("1_56iyt")
 character_name = "Wilds Master"
 character_index = 1
 spell_1 = ExtResource("2_56iyt")
+spell_2 = ExtResource("3_oaojc")
+spell_3 = ExtResource("4_tb1ry")
 metadata/_custom_type_script = "uid://mktwunkgkyqx"

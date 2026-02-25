@@ -78,6 +78,10 @@ func _get_local_input() -> Dictionary:
 	
 	if input_vector != Vector2i.ZERO && tilemap.query_location(input_vector * tilemap.tile_size + Vector2i(global_position)):
 		input_vector = Vector2i.ZERO
+	elif input_vector != Vector2i.ZERO:
+		for collidable_entity in get_tree().get_nodes_in_group("collider"):
+			if collidable_entity.tile_position == tile_position + input_vector:
+				input_vector = Vector2i.ZERO
 	
 	var clicked_cell : Vector2i = Vector2i.ZERO
 	var cast_spell : bool = false

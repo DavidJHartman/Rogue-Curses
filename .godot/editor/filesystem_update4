@@ -14,3 +14,13 @@ res://scenes/spells/spore mine/spore_mine_seed.tscn
 res://scenes/spells/spore mine/spore_mine_seed.gd
 res://scenes/spells/entangle mine/entangle_mine.tscn
 res://scenes/spells/entangle mine/entangle_mine.gd
+res://scenes/spells/entangle mine/entangle_mine_seed.tscn
+res://scenes/spells/fire wall/fire wall.gd
+res://scenes/spells/wall of brairs/wall_of_briars.gd
+res://scenes/effects/briar/briar.tscn
+res://scenes/effects/briar/briar.gd
+res://scenes/player/player.tscn
+res://scenes/spells/spell resources/wall of briars.tres
+res://scenes/spells/wall of brairs/wall_of_briars.tscn
+res://scenes/spells/spell resources/entangle mine.tres
+res://scenes/effects/fire/fire.tscn

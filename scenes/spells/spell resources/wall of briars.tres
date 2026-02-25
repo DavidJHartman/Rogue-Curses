@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpellResource" format=3 uid="uid://mdveaivnw6q7"]
+
+[ext_resource type="Script" uid="uid://dc6rkwqoyhkdd" path="res://scenes/spells/spell_resource.gd" id="1_yfquk"]
+[ext_resource type="PackedScene" uid="uid://bupacqsx13mxx" path="res://scenes/spells/wall of brairs/wall_of_briars.tscn" id="2_yfquk"]
+[ext_resource type="Texture2D" uid="uid://3ohm557tyfpi" path="res://icon.svg" id="3_chknd"]
+
+[resource]
+script = ExtResource("1_yfquk")
+spell_name = "Wall of Briars"
+spell_description = "Spawn a wall of briars in a straight line from the caster."
+spell_scene = ExtResource("2_yfquk")
+spell_texture = ExtResource("3_chknd")
+ticks_to_charge = 3
+metadata/_custom_type_script = "uid://dc6rkwqoyhkdd"

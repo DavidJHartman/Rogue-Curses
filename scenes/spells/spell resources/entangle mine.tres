@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpellResource" format=3 uid="uid://cocg4a55vrpsi"]
+
+[ext_resource type="Script" uid="uid://dc6rkwqoyhkdd" path="res://scenes/spells/spell_resource.gd" id="1_d0mm1"]
+[ext_resource type="PackedScene" uid="uid://qytp2j4f8p73" path="res://scenes/spells/spore mine/spore_mine_seed.tscn" id="2_15pp1"]
+[ext_resource type="Texture2D" uid="uid://3ohm557tyfpi" path="res://icon.svg" id="3_ly5es"]
+
+[resource]
+script = ExtResource("1_d0mm1")
+spell_name = "Entangle Mine"
+spell_description = "Cast a seed that spawns a mine where it falls. The mine will explode and entangle an opponent when they're hit."
+spell_scene = ExtResource("2_15pp1")
+spell_texture = ExtResource("3_ly5es")
+ticks_to_charge = 5
+metadata/_custom_type_script = "uid://dc6rkwqoyhkdd"

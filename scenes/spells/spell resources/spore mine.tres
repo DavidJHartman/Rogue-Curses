@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_gpc3f")
 spell_name = "Spore Mine"
-spell_description = "Spawn a mine on the ground at your feet. If an enemy gets too close, it will explode and poison them."
+spell_description = "Cast a seed that spawns a mine where it falls. The mine will explode and leave a cloud of poison spores."
 spell_scene = ExtResource("2_gpc3f")
 spell_texture = ExtResource("3_uwgfs")
 ticks_to_charge = 5

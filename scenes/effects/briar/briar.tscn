@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b3aogljfdrbhu"]
+
+[ext_resource type="Script" uid="uid://cjw5qu0lkojqf" path="res://scenes/effects/briar/briar.gd" id="1_wkm8v"]
+[ext_resource type="Texture2D" uid="uid://bnn1yw4jemvp3" path="res://assets/tileset/Effects.png" id="2_idvh8"]
+
+[node name="briar" type="Node2D" unique_id=1417219096 node_paths=PackedStringArray("sprite") groups=["collider", "damageable", "network_sync"]]
+script = ExtResource("1_wkm8v")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1294849846]
+texture_filter = 1
+texture = ExtResource("2_idvh8")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)

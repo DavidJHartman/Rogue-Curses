@@ -36,6 +36,8 @@ enabled=PackedStringArray()
 network_sync="Nodes in this group participate in rollback."
 damages_players=""
 damageable=""
+collider=""
+players=""
 
 [input]
 
